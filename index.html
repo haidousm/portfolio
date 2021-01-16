@@ -45,7 +45,10 @@
                     </div>
                 </div>
                 <div class="content-container">
-                    <div class="terminal-container">
+                    <div
+                        class="terminal-container"
+                        style="background-color: rgb(27, 27, 27)"
+                    >
                         <div class="mac-terminal-top-bar">
                             <div class="btn-container">
                                 <button
@@ -67,7 +70,15 @@
                                 <button class="top-bar-btn green"></button>
                             </div>
                         </div>
-                        <canvas></canvas>
+                        <div class="canvas">
+                            <video id="video" autoplay>
+                                <source
+                                    id="video-src"
+                                    type="video/mp4"
+                                    src="assets/videos/5.mp4"
+                                />
+                            </video>
+                        </div>
                         <div class="demo-button-container">
                             <a class="demo-buttons" href="/fine-mnist-demo"
                                 >Demo</a
@@ -107,6 +118,7 @@
             ></div>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="assets/index.js"></script>
     </body>
 </html>
