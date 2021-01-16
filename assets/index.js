@@ -27,21 +27,16 @@ const createShellDemo = () => {
 };
 
 const startShellDemo = (i) => {
-    if (i == 0) {
-        createShellDemo();
-    }
     pTag = pTags[i];
     document.getElementsByClassName("output-container")[0].appendChild(pTag);
 
     if (i % 2 == 1 && i - 2 >= 0) {
         pTags[i - 2].remove();
     }
-
-    if (i == pTags.length) {
-    }
 };
 
 let j = 0;
+createShellDemo();
 setInterval(() => {
     if (j == pTags.length) {
         j = 0;
