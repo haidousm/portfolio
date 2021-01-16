@@ -30,14 +30,16 @@
                 overflow: hidden;
                 font-size: 14px;
                 box-shadow: 0 0 12px #000;
+                position: relative;
             }
 
             .input-container {
-                margin: 5px 5px;
+                margin: 30px 5px;
                 color: inherit;
                 width: 100%;
                 font-family: Menlo, Monaco, Consolas, "Liberation Mono",
                     "Courier New", monospace;
+                position: absolute;
             }
             .cmd-input {
                 border: none;
@@ -58,6 +60,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                position: absolute;
             }
 
             .btn-container {
@@ -108,7 +111,7 @@
             }
 
             .projects-container h2 {
-                color: rgb(176, 176, 176);
+                color: white;
             }
             .projects-content {
                 display: flex;
@@ -116,7 +119,6 @@
                 justify-content: center;
                 align-items: center;
                 position: relative;
-                bottom: 60px;
             }
 
             .conf-score {
@@ -133,7 +135,7 @@
             }
 
             .confidence-container {
-                height: 500px;
+                height: 300px;
                 width: 200px;
                 font-size: 1.05rem;
                 margin-left: 10px;
@@ -152,6 +154,7 @@
             canvas {
                 width: 100%;
                 height: 100%;
+                position: absolute;
             }
 
             .footer {
@@ -160,13 +163,12 @@
 
                 border-radius: 30px;
                 background-color: rgba(23, 23, 23, 0.2);
-
                 position: relative;
-                bottom: 100px;
                 margin: 0 auto;
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
+                margin-top: 100px;
             }
 
             .dock-app {
@@ -175,6 +177,7 @@
                 border-radius: 15px;
 
                 transition: transform 0.2s;
+                cursor: pointer;
             }
 
             .github {
@@ -195,13 +198,34 @@
             .dock-app:hover {
                 transform: scale(1.2) translateY(-10px) !important;
             }
+            .demo-button-container {
+                width: 100%;
+                height: 100%;
+                font-size: 1.5rem;
+                backdrop-filter: blur(5px);
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .demo-buttons {
+                text-decoration: none;
+                color: white;
+                border: 1px solid #fff;
+                border-radius: 10px;
+                padding: 10px;
+            }
+
+            .demo-buttons:hover {
+                color: #000;
+                background: white;
+            }
         </style>
     </head>
 
     <body style="text-align: center">
-        <h1 style="margin: 50px 0; color: rgb(176, 176, 176)">
-            Hi, I'm Moussa.
-        </h1>
+        <h1 style="margin: 50px 0; color: white">Hi, I'm Moussa.</h1>
         <div class="projects-container">
             <h2>Projects</h2>
             <div class="projects-content">
@@ -235,6 +259,10 @@
                             />
                         </label>
                     </div>
+                    <div class="demo-button-container">
+                        <a class="demo-buttons" href="#">Demo</a>
+                        <a class="demo-buttons" href="#">GitHub</a>
+                    </div>
                 </div>
                 <div class="content-container">
                     <div class="terminal-container">
@@ -260,6 +288,10 @@
                             </div>
                         </div>
                         <canvas></canvas>
+                        <div class="demo-button-container">
+                            <a class="demo-buttons" href="#">Demo</a>
+                            <a class="demo-buttons" href="#">GitHub</a>
+                        </div>
                     </div>
                     <div class="confidence-container">
                         <div class="confidences">
@@ -279,8 +311,20 @@
             </div>
         </div>
         <div class="footer">
-            <div class="dock-app github"></div>
-            <div class="dock-app linkedin"></div>
+            <div
+                class="dock-app github"
+                onclick="goTo('https://github.com/haidousm/')"
+            ></div>
+            <div
+                class="dock-app linkedin"
+                onclick="goTo('https://linkedin.com/in/haidousm')"
+            ></div>
         </div>
+
+        <script>
+            const goTo = (url) => {
+                window.location.href = url;
+            };
+        </script>
     </body>
 </html>
