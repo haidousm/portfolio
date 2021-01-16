@@ -1,0 +1,215 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    background-color: rgba(0, 0, 0, 0.75);
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
+
+    overflow: hidden;
+}
+.terminal-container {
+    background-color: rgb(30, 30, 30);
+    width: 350px;
+    height: 250px;
+
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 5px;
+
+    color: white;
+    overflow: hidden;
+    font-size: 14px;
+    box-shadow: 0 0 12px #000;
+    position: relative;
+}
+
+.input-container {
+    margin: 30px 5px;
+    color: inherit;
+    width: 100%;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
+    position: absolute;
+}
+.cmd-input {
+    border: none;
+    background-color: inherit;
+    color: white;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
+}
+
+.cmd-input:focus {
+    outline: none;
+}
+
+.mac-terminal-top-bar {
+    width: 100%;
+    height: 22px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.btn-container {
+    margin-left: 5px;
+}
+
+.top-bar-btn {
+    width: 12px;
+    height: 12px;
+    margin: 5px 2px;
+    border: none;
+    border-radius: 50%;
+}
+
+.top-bar-btn:focus {
+    outline: none;
+}
+
+.top-bar-btn.red {
+    background: rgb(238, 105, 94);
+}
+.top-bar-btn.red:hover {
+    background: rgb(182, 65, 54) !important;
+}
+.top-bar-btn.yellow {
+    background: rgb(245, 189, 79);
+}
+.top-bar-btn.yellow:hover {
+    background: rgb(190, 147, 61) !important;
+}
+.top-bar-btn.green {
+    background: rgb(98, 196, 84);
+}
+.top-bar-btn.green:hover {
+    background: rgb(64, 138, 55) !important;
+}
+
+.mac-terminal-top-bar p {
+    color: rgb(176, 176, 176);
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-container h2 {
+    color: white;
+    margin-bottom: 50px;
+}
+.projects-content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.conf-score {
+    background-color: rgb(30, 30, 30);
+    display: inline-block;
+    width: 100px;
+    height: 15px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.confidence-container {
+    height: 300px;
+    width: 200px;
+    font-size: 1.05rem;
+    margin-left: 10px;
+    display: flex;
+}
+
+.confidences {
+    color: rgb(176, 176, 176);
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.footer {
+    height: 100px;
+    width: 15%;
+
+    border-radius: 30px;
+    background-color: rgba(23, 23, 23, 0.2);
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.dock-app {
+    width: 65px;
+    height: 65%;
+    border-radius: 15px;
+
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.github {
+    background: url("images/github_logo.png");
+    background-size: contain;
+}
+
+.linkedin {
+    background: url("images/linkedin_logo.png");
+    background-size: contain;
+    background-color: white;
+}
+
+.footer:hover > .dock-app {
+    transform: scale(1.1) translateY(-10px);
+}
+
+.dock-app:hover {
+    transform: scale(1.2) translateY(-10px) !important;
+}
+.demo-button-container {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.demo-buttons {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.demo-buttons:hover {
+    color: #000;
+    background: white;
+}
