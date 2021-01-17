@@ -45,7 +45,7 @@ setInterval(() => {
     j++;
 }, 1000);
 
-videos = [
+gifs = [
     [1, [0.1, 0.9, 0.3, 0.2, 0.25, 0.17, 0.43, 0.23, 0.1, 0.24]],
     [2, [0.1, 0.3, 0.9, 0.25, 0.48, 0.23, 0.58, 0.49, 0.25, 0.43]],
     [3, [0.25, 0.1, 0.3, 0.9, 0.28, 0.11, 0.06, 0.32, 0.43, 0.23]],
@@ -54,21 +54,18 @@ videos = [
     [8, [0.12, 0.15, 0.06, 0.25, 0.26, 0.24, 0.26, 0.12, 0.91, 0.53]],
 ];
 
-const playVideo = (videoSrc) => {
-    video = document.getElementById("video");
-    document.getElementById("video-src").src = videoSrc;
-    video.load();
-    video.play();
+const playGif = (gifSrc) => {
+    document.getElementById("gif-src").src = gifSrc;
 };
 
 let k = 0;
 setInterval(() => {
-    if (k == videos.length) {
+    if (k == gifs.length) {
         k = 0;
     }
-    let videoSrc = "assets/videos/" + videos[k][0] + ".mp4";
-    playVideo(videoSrc);
-    confidences = videos[k][1];
+    let gifSrc = "assets/gifs/" + gifs[k][0] + ".gif";
+    playGif(gifSrc);
+    confidences = gifs[k][1];
 
     setTimeout(function () {
         jQuery.each(jQuery(".conf-score"), function (index, elem) {
@@ -83,4 +80,4 @@ setInterval(() => {
     }, 1500);
 
     k++;
-}, 3000);
+}, 2500);
