@@ -152,7 +152,7 @@ body {
 
 .footer {
     height: 100px;
-    width: 15%;
+    width: 20%;
 
     border-radius: 30px;
     background-color: rgba(23, 23, 23, 0.2);
@@ -181,6 +181,11 @@ body {
     background: url("images/linkedin_logo.png");
     background-size: contain;
     background-color: white;
+}
+
+.email-client {
+    background: url("images/email_client_logo.png");
+    background-size: contain;
 }
 
 .footer:hover > .dock-app {
@@ -221,6 +226,65 @@ body {
 .content-container:active .demo-button-container {
     visibility: visible;
     opacity: 1;
+}
+
+.email-client-container {
+    position: absolute;
+    top: 100px;
+    left: 350px;
+    width: 750px;
+    height: 500px;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+}
+.email-form {
+    height: 100%;
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.email-form-input {
+    outline: none;
+    background: none;
+    border: none;
+    width: 90%;
+    margin: 15px 5px;
+    color: white;
+    padding: 10px;
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.email-form-input::placeholder {
+    color: rgb(176, 176, 176);
+}
+
+#email-body {
+    height: 100px;
+    resize: none;
+}
+
+.submit-email-btn {
+    margin: 0 auto;
+    outline: none;
+    background: none;
+    color: rgb(176, 176, 176);
+    padding: 10px;
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.submit-email-btn:hover {
+    background-color: rgb(176, 176, 176);
+    color: rgb(30, 30, 30);
 }
 
 @media (max-width: 1200px) {

@@ -81,3 +81,21 @@ setInterval(() => {
 
     k++;
 }, 2500);
+
+const toggleEmailClient = (display) => {
+    if (display) {
+        document.getElementsByClassName(
+            "email-client-container"
+        )[0].style.visibility = "visible";
+        document.getElementsByClassName(
+            "email-client-container"
+        )[0].style.opacity = 1;
+    } else {
+        document.getElementsByClassName(
+            "email-client-container"
+        )[0].style.visibility = "hidden";
+        document.getElementsByClassName(
+            "email-client-container"
+        )[0].style.opacity = 0;
+    }
+};
