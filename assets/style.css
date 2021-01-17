@@ -9,7 +9,31 @@ body {
 
     overflow: hidden;
 }
-.terminal-container {
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-container h2 {
+    color: white;
+}
+.projects-content {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+}
+
+.terminal-like-container {
     background-color: rgb(30, 30, 30);
     width: 350px;
     height: 250px;
@@ -25,27 +49,7 @@ body {
     z-index: -2;
 }
 
-.input-container {
-    margin: 30px 5px;
-    color: inherit;
-    width: 100%;
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
-    position: absolute;
-}
-.cmd-input {
-    border: none;
-    background-color: inherit;
-    color: white;
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
-}
-
-.cmd-input:focus {
-    outline: none;
-}
-
-.mac-terminal-top-bar {
+.mac-app-top-bar {
     width: 100%;
     height: 22px;
     background-color: rgb(44, 44, 44);
@@ -53,6 +57,12 @@ body {
     align-items: center;
     justify-content: space-between;
     position: absolute;
+}
+
+.mac-app-top-bar p {
+    color: rgb(176, 176, 176);
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
 }
 
 .btn-container {
@@ -90,30 +100,6 @@ body {
     background: rgb(64, 138, 55) !important;
 }
 
-.mac-terminal-top-bar p {
-    color: rgb(176, 176, 176);
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
-}
-
-.projects-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.projects-container h2 {
-    color: white;
-    margin-bottom: 50px;
-}
-.projects-content {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
 .conf-score {
     background-color: rgb(30, 30, 30);
     display: inline-block;
@@ -121,10 +107,12 @@ body {
     height: 15px;
 }
 
-.content-container {
-    display: flex;
-    align-items: center;
-    margin-left: 100px;
+.output-container {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 5px;
+    text-align: left;
+    font-size: 10px;
 }
 
 .confidence-container {
@@ -165,6 +153,8 @@ body {
     height: 100px;
     width: 15%;
 
+    margin-top: 50px !important;
+
     border-radius: 30px;
     background-color: rgba(23, 23, 23, 0.2);
     position: relative;
@@ -172,7 +162,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 50px;
 }
 
 .dock-app {
@@ -229,15 +218,7 @@ body {
     background: white;
 }
 
-.terminal-container:hover .demo-button-container {
+.terminal-like-container:hover .demo-button-container {
     visibility: visible;
     opacity: 1;
-}
-
-.output-container {
-    position: absolute;
-    margin-top: 30px;
-    margin-left: 5px;
-    text-align: left;
-    font-size: 10px;
 }
