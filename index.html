@@ -166,11 +166,7 @@
                 </div>
             </div>
 
-            <form
-                class="email-form"
-                action="/assets/submit_email.php"
-                method="post"
-            >
+            <div class="email-form">
                 <input
                     type="email"
                     name="email"
@@ -191,12 +187,14 @@
                     placeholder="Body"
                     class="email-form-input"
                 ></textarea>
-                <input
+                <button
                     type="submit"
-                    value="Send Email"
                     class="submit-email-btn"
-                />
-            </form>
+                    onclick="sendEmail()"
+                >
+                    Send Email
+                </button>
+            </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

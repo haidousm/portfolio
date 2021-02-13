@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Unix Shell</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+            }
+            body {
+                background-color: rgba(0, 0, 0, 0.75);
+            }
+            .terminal-container {
+                background-color: rgb(30, 30, 30);
+                width: 600px;
+                height: 400px;
+                margin: 0 auto;
+                margin-top: 100px;
+                border: 1px solid rgb(71, 71, 71);
+                border-radius: 5px;
+
+                color: white;
+                overflow: auto;
+                font-size: 14px;
+                box-shadow: 0 0 12px #000;
+                overflow-x: hidden;
+                
+                position: absolute;
+            }
+
+            .output-container {
+                margin: 5px 5px;
+                color: inherit;
+                font-family: Menlo, Monaco, Consolas, "Liberation Mono",
+                    "Courier New", monospace;
+            }
+
+            .input-container {
+                margin: 5px 5px;
+                color: inherit;
+                width: 100%;
+                font-family: Menlo, Monaco, Consolas, "Liberation Mono",
+                    "Courier New", monospace;
+            }
+            .cmd-input {
+                border: none;
+                background-color: inherit;
+                color: white;
+                font-family: Menlo, Monaco, Consolas, "Liberation Mono",
+                    "Courier New", monospace;
+            }
+
+            .cmd-input:focus {
+                outline: none;
+            }
+
+            .mac-terminal-top-bar {
+                width: 100%;
+                height: 22px;
+                background-color: rgb(44, 44, 44);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .btn-container {
+                margin-left: 5px;
+            }
+
+            .top-bar-btn {
+                width: 12px;
+                height: 12px;
+                margin: 5px 2px;
+                border: none;
+                border-radius: 50%;
+            }
+
+            .top-bar-btn:focus {
+                outline: none;
+            }
+
+            .top-bar-btn.red {
+                background: rgb(238, 105, 94);
+            }
+            .top-bar-btn.red:hover {
+                background: rgb(182, 65, 54) !important;
+            }
+            .top-bar-btn.yellow {
+                background: rgb(245, 189, 79);
+            }
+            .top-bar-btn.yellow:hover {
+                background: rgb(190, 147, 61) !important;
+            }
+            .top-bar-btn.green {
+                background: rgb(98, 196, 84);
+            }
+            .top-bar-btn.green:hover {
+                background: rgb(64, 138, 55) !important;
+            }
+
+            .mac-terminal-top-bar p {
+                color: rgb(176, 176, 176);
+                font-family: Menlo, Monaco, Consolas, "Liberation Mono",
+                    "Courier New", monospace;
+            }
+            
+            .rick-container{
+                
+                overflow: hidden;
+                position: absolute;
+                z-index: 10;
+                
+                width: 750px;
+    height: 600px;
+    top: -50px;
+                
+            }
+            
+            .content-container{
+                
+                width: 100%;
+    height: 100%;
+   
+    position: relative;
+    display: flex;
+    justify-content: center;
+                
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="content-container" style="width: 100%; height: 100%">
+        <div class="terminal-container">
+            <div class="mac-terminal-top-bar">
+                <div class="btn-container">
+                    <button
+                        onclick="window.location.href='https://haidousm.com/';"
+                        class="top-bar-btn red"
+                    ></button>
+                    <button class="top-bar-btn yellow"></button>
+                    <button class="top-bar-btn green"></button>
+                </div>
+                <p>root@haidousm.com -- bash</p>
+                <div class="btn-container" style="visibility: hidden">
+                    <button class="top-bar-btn red"></button>
+                    <button class="top-bar-btn yellow"></button>
+                    <button class="top-bar-btn green"></button>
+                </div>
+            </div>
+            <div class="output-container"></div>
+            <div class="input-container">
+                <label for="cmd-input">
+                    root@haidousm.com $
+                    <input type="text" name="cmd-input" class="cmd-input" />
+                </label>
+            </div>
+<!--            <div class="video-container" style="display: none;">-->
+<!--<iframe  id="rick" width="100%" height="100%" src="">-->
+<!--                </iframe>-->
+                
+                
+<!--            </div>-->
+        </div>
+        <div class="terminal-container rick-container" style="display: none">
+            <div class="mac-terminal-top-bar">
+                <div class="btn-container">
+                    <button
+                        onclick="closeRick()"
+                        class="top-bar-btn red"
+                    ></button>
+                    <button class="top-bar-btn yellow"></button>
+                    <button class="top-bar-btn green"></button>
+                </div>
+                <p>Bad Boi</p>
+                <div class="btn-container" style="visibility: hidden">
+                    <button class="top-bar-btn red"></button>
+                    <button class="top-bar-btn yellow"></button>
+                    <button class="top-bar-btn green"></button>
+                </div>
+            </div>
+<iframe  style="border: none; pointer-events: none;" id="rick" width="100%" height="100%" src=""></iframe>
+        </div>
+        </div>
+        <script src="js/index.js"></script>
+    </body>
+</html>

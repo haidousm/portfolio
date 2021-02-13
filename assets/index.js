@@ -91,6 +91,10 @@ const toggleEmailClient = (display) => {
             "email-client-container"
         )[0].style.opacity = 1;
     } else {
+        
+        document.getElementById("email").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("email-body").value = "";
         document.getElementsByClassName(
             "email-client-container"
         )[0].style.visibility = "hidden";
@@ -98,4 +102,19 @@ const toggleEmailClient = (display) => {
             "email-client-container"
         )[0].style.opacity = 0;
     }
+};
+
+const sendEmail = () => {
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let body = document.getElementById("email-body").value;
+
+    $.ajax({
+        url: "https://haidousm.com/assets/submit_email.php",
+        type: "post",
+        data: `email=${email}&subject=${subject}&body=${body}`,
+        success: function (response) {
+            toggleEmailClient(0);
+        },
+    });
 };

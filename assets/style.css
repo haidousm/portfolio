@@ -184,8 +184,9 @@ body {
 }
 
 .email-client {
-    background: url("images/email_client_logo.png");
-    background-size: contain;
+    background: url("images/email_icon.png");
+    background-size: cover;
+    background-color: #fff;
 }
 
 .footer:hover > .dock-app {
