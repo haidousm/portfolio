@@ -3,14 +3,13 @@ const cmdSubmitted = (cmd) => {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            
             shellOutputLines = JSON.parse("[" + this.response + "]");
             printResponse(cmd, shellOutputLines);
         }
     };
     xhttp.open(
         "POST",
-        "https://haidousm.com/shell-demo/php/handle_request.php",
+        "https://haidousm.com/shell-demo/inc/php/handle_request.php",
         true
     );
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -32,20 +31,19 @@ document.getElementsByClassName("cmd-input")[0].onkeyup = function (e) {
     if (e.key === "Enter" || e.keyCode === 13) {
         let cmd = e.target.value;
         const pTag = document.createElement("p");
-        pTag.innerHTML = "root@haidousm.com $ " + cmd
+        pTag.innerHTML = "root@haidousm.com $ " + cmd;
         document
             .getElementsByClassName("output-container")[0]
             .appendChild(pTag);
 
         updateScroll();
 
-        if(cmd.includes("sudo") ){
-            
-            
-            document.getElementsByClassName("rick-container")[0].style.display = "block";
-            document.getElementById("rick").src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&showinfo=0&controls=0&autohide=1";
-            
-        }else if (cmd == "clear") {
+        if (cmd.includes("sudo")) {
+            document.getElementsByClassName("rick-container")[0].style.display =
+                "block";
+            document.getElementById("rick").src =
+                "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&showinfo=0&controls=0&autohide=1";
+        } else if (cmd == "clear") {
             document.getElementsByClassName("output-container")[0].innerHTML =
                 "";
             history.push(cmd);
@@ -64,9 +62,7 @@ function updateScroll() {
     element.scrollTop = element.scrollHeight;
 }
 
-function closeRick(){
-    
-     document.getElementsByClassName("rick-container")[0].style.display = "none";
-     document.getElementById("rick").src = "";
-    
+function closeRick() {
+    document.getElementsByClassName("rick-container")[0].style.display = "none";
+    document.getElementById("rick").src = "";
 }
