@@ -1,4 +1,0 @@
-deployment:
-    tasks:
-        - export DEPLOYPATH=/home/haidwnih/public_html/
-        - /bin/cp -R * $DEPLOYPATH

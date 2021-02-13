@@ -63,7 +63,7 @@ setInterval(() => {
     if (k == gifs.length) {
         k = 0;
     }
-    let gifSrc = "assets/gifs/" + gifs[k][0] + ".gif";
+    let gifSrc = "assets/images/gifs/" + gifs[k][0] + ".gif";
     playGif(gifSrc);
     confidences = gifs[k][1];
 
@@ -91,7 +91,6 @@ const toggleEmailClient = (display) => {
             "email-client-container"
         )[0].style.opacity = 1;
     } else {
-        
         document.getElementById("email").value = "";
         document.getElementById("subject").value = "";
         document.getElementById("email-body").value = "";
@@ -110,7 +109,7 @@ const sendEmail = () => {
     let body = document.getElementById("email-body").value;
 
     $.ajax({
-        url: "https://haidousm.com/assets/submit_email.php",
+        url: "https://haidousm.com/inc/submit_email.php",
         type: "post",
         data: `email=${email}&subject=${subject}&body=${body}`,
         success: function (response) {

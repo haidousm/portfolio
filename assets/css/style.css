@@ -173,18 +173,18 @@ body {
 }
 
 .github {
-    background: url("images/github_logo.png");
+    background: url("../images/github_logo.png");
     background-size: contain;
 }
 
 .linkedin {
-    background: url("images/linkedin_logo.png");
+    background: url("../images/linkedin_logo.png");
     background-size: contain;
     background-color: white;
 }
 
 .email-client {
-    background: url("images/email_icon.png");
+    background: url("../images/email_icon.png");
     background-size: cover;
     background-color: #fff;
 }
