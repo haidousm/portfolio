@@ -1,27 +1,167 @@
-* {
-    padding: 0px;
-    margin: 0px;
+/*** RESET CSS BEGINS ***/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
 body {
-    background-color: rgba(0, 0, 0, 0.75);
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
-
-    overflow: hidden;
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-.projects-container {
+/*** RESET CSS ENDS ***/
+
+:root {
+    --white: #fff;
+    --background-color: rgba(0, 0, 0, 0.75);
+    --terminal-like-background-color: rgb(30, 30, 30);
+    --terminal-like-border: 1px solid rgb(71, 71, 71);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
+    color: var(--white);
+}
+
+.main-heading {
+    color: var(--white);
+
+    margin: 50px 0;
+    text-align: center;
+}
+
+.projects-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
 }
 
-.projects-container h2 {
-    color: white;
-}
-.projects-content {
-    margin: 50px 0px 50px 0px;
+.projects-section-content-container {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -29,30 +169,30 @@ body {
     position: relative;
 }
 
-.content-container {
+.projects-section-content {
     display: flex;
     align-items: center;
 }
 
 .terminal-like-container {
-    background-color: rgb(30, 30, 30);
+    background-color: var(--terminal-like-background-color);
     width: 350px;
     height: 250px;
 
-    border: 1px solid rgb(71, 71, 71);
+    border: var(--terminal-like-border);
     border-radius: 5px;
-
-    color: white;
-    overflow: hidden;
-    font-size: 14px;
     box-shadow: 0 0 12px #000;
+
+    overflow: hidden;
+
     position: relative;
     z-index: 2;
+
+    font-size: 0.75rem;
 }
 
 .mac-app-top-bar {
     width: 100%;
-    height: 22px;
     background-color: rgb(44, 44, 44);
     display: flex;
     align-items: center;
@@ -62,8 +202,6 @@ body {
 
 .mac-app-top-bar p {
     color: rgb(176, 176, 176);
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
 }
 
 .btn-container {
@@ -101,6 +239,71 @@ body {
     background: rgb(64, 138, 55) !important;
 }
 
+.demo-button-container {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+}
+
+.demo-buttons {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.demo-buttons:hover {
+    color: #000;
+    background: white;
+}
+
+.projects-section-content:hover .demo-button-container,
+.projects-section-content:active .demo-button-container {
+    visibility: visible;
+    opacity: 1;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    z-index: -1;
+    border: none;
+    margin-top: 25px;
+}
+
+.confidence-container {
+    height: 300px;
+    width: 200px;
+    font-size: 1.05rem;
+    margin-left: 10px;
+    display: flex;
+}
+
+.confidences {
+    color: rgb(176, 176, 176);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#gif-src {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 .conf-score {
     background-color: rgb(30, 30, 30);
     display: inline-block;
@@ -116,41 +319,13 @@ body {
     font-size: 10px;
 }
 
-.confidence-container {
-    height: 300px;
-    width: 200px;
-    font-size: 1.05rem;
-    margin-left: 10px;
-    display: flex;
-}
-
-.confidences {
-    color: rgb(176, 176, 176);
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.canvas {
+footer {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    z-index: -1;
-    border: none;
-    margin-top: 25px;
+    margin-top: 100px;
+    margin-bottom: 25px;
 }
 
-#gif-src {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.footer {
+.footer-content {
     height: 100px;
     width: 20%;
 
@@ -195,38 +370,6 @@ body {
 
 .dock-app:hover {
     transform: scale(1.2) translateY(-10px) !important;
-}
-.demo-button-container {
-    width: 100%;
-    height: 100%;
-    font-size: 1.5rem;
-    backdrop-filter: blur(5px);
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s linear;
-}
-
-.demo-buttons {
-    text-decoration: none;
-    color: white;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.demo-buttons:hover {
-    color: #000;
-    background: white;
-}
-
-.content-container:hover .demo-button-container,
-.content-container:active .demo-button-container {
-    visibility: visible;
-    opacity: 1;
 }
 
 .email-client-container {
@@ -292,29 +435,28 @@ body {
     body {
         overflow: auto;
     }
-    .projects-content {
+    .projects-section-content-container {
         flex-direction: column;
     }
 
-    .footer {
-        width: 20%;
+    .footer-content {
+        width: 30%;
     }
 }
 
 @media (max-width: 750px) {
-    .footer {
-        width: 25%;
+    .footer-content {
+        width: 45%;
     }
 }
 @media (max-width: 650px) {
     .confidence-container {
         display: none;
     }
-    .content-container {
+    .projects-section-content {
         margin: 20px;
     }
-
-    .footer {
-        width: 50%;
+    .footer-content {
+        width: 55%;
     }
 }
