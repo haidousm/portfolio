@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Digit Recognizer</title>
+        <link
+            rel="shortcut icon"
+            href="assets/images/favicon.ico"
+            type="image/x-icon"
+        />
+        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <body>
+        <div class="instructions">
+            <div class="btn-container column-flex">
+                <div class="instructions-btn-container">
+                    <button
+                        onclick="window.location.href='https://haidousm.com/';"
+                        class="top-bar-btn red"
+                    ></button>
+                    <p>: Exit</p>
+                </div>
+                <div class="instructions-btn-container">
+                    <button class="top-bar-btn yellow"></button>
+                    <p>: Clear Drawing</p>
+                </div>
+                <div class="instructions-btn-container">
+                    <button class="top-bar-btn green"></button>
+                    <p>: Get Prediction</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="confidence-container" style="visibility: hidden"></div>
+            <div class="terminal">
+                <div class="mac-terminal-top-bar">
+                    <div class="btn-container">
+                        <button
+                            onclick="window.location.href='https://haidousm.com/';"
+                            class="top-bar-btn red"
+                        ></button>
+                        <button class="top-bar-btn yellow clear"></button>
+                        <button class="top-bar-btn green"></button>
+                    </div>
+                    <p>Prediction: <span id="prediction">---</span></p>
+                    <div class="btn-container" style="visibility: hidden">
+                        <button class="top-bar-btn red"></button>
+                        <button class="top-bar-btn yellow"></button>
+                        <button class="top-bar-btn green"></button>
+                    </div>
+                </div>
+                <canvas width="498px" height="498px"></canvas>
+            </div>
+            <div class="confidence-container">
+                <div class="confidences">
+                    <p>0:<span class="conf-score"></span></p>
+                    <p>1:<span class="conf-score"></span></p>
+                    <p>2:<span class="conf-score"></span></p>
+                    <p>3:<span class="conf-score"></span></p>
+                    <p>4:<span class="conf-score"></span></p>
+                    <p>5:<span class="conf-score"></span></p>
+                    <p>6:<span class="conf-score"></span></p>
+                    <p>7:<span class="conf-score"></span></p>
+                    <p>8:<span class="conf-score"></span></p>
+                    <p>9:<span class="conf-score"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/index.js"></script>
+    </body>
+</html>

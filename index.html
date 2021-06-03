@@ -3,134 +3,145 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Moussa Haidous - Developer. Computer Vision & Deep Learning"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+            name="keywords"
+            content="haidousm, Moussa, Moussa Haidous, Developer, Freelance, JavaScript, Deep Learning, Computer Vision, Machine Learning"
+        />
+        <link
+            rel="shortcut icon"
+            href="assets/images/favicon.ico"
+            type="image/x-icon"
+        />
+        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="assets/css/style.css" />
         <title>Moussa Haidous</title>
-        <link rel="shortcut icon" href="#" />
-
-        <link rel="stylesheet" href="assets/style.css" />
     </head>
 
-    <body style="text-align: center">
-        <div class="content-container-2">
-            <h1 style="margin: 50px 0; color: white">Hi, I'm Moussa.</h1>
-            <div class="projects-container">
-                <h2>Projects</h2>
-                <div class="projects-content">
-                    <div class="content-container">
-                        <div
-                            class="confidence-container"
-                            style="visibility: hidden"
-                        >
-                            <div class="confidences">
-                                <p>0:<span class="_conf-score"></span></p>
-                                <p>1:<span class="_conf-score"></span></p>
-                                <p>2:<span class="_conf-score"></span></p>
-                                <p>3:<span class="_conf-score"></span></p>
-                                <p>4:<span class="_conf-score"></span></p>
-                                <p>5:<span class="_conf-score"></span></p>
-                                <p>6:<span class="_conf-score"></span></p>
-                                <p>7:<span class="_conf-score"></span></p>
-                                <p>8:<span class="_conf-score"></span></p>
-                                <p>9:<span class="_conf-score"></span></p>
-                            </div>
-                        </div>
-                        <div class="terminal-like-container">
-                            <div class="mac-app-top-bar">
-                                <div class="btn-container">
-                                    <button
-                                        onclick="window.location.href='https://haidousm.com/';"
-                                        class="top-bar-btn red"
-                                    ></button>
-                                    <button class="top-bar-btn yellow"></button>
-                                    <button class="top-bar-btn green"></button>
-                                </div>
-                                <h4 style="color: rgb(176, 176, 176)">
-                                    UNIX Shell
-                                </h4>
-                                <div
-                                    class="btn-container"
-                                    style="visibility: hidden"
-                                >
-                                    <button
-                                        onclick="window.location.href='https://haidousm.com/';"
-                                        class="top-bar-btn red"
-                                    ></button>
-                                    <button class="top-bar-btn yellow"></button>
-                                    <button class="top-bar-btn green"></button>
-                                </div>
-                            </div>
-                            <div class="output-container"></div>
-                            <div class="demo-button-container">
-                                <a class="demo-buttons" href="/shell-demo"
-                                    >Demo</a
-                                >
-                                <a
-                                    class="demo-buttons"
-                                    href="https://github.com/haidousm/unix-shell"
-                                    >GitHub</a
-                                >
-                            </div>
+    <body>
+        <header>
+            <h1 class="main-heading">Hi, I'm Moussa.</h1>
+        </header>
+        <section class="projects-section">
+            <h2 class="sub-heading-2">Projects</h2>
+            <div class="projects-section-content-container">
+                <div class="projects-section-content">
+                    <div
+                        class="confidence-container"
+                        style="visibility: hidden"
+                    >
+                        <div class="confidences">
+                            <p>0:<span class="_conf-score"></span></p>
+                            <p>1:<span class="_conf-score"></span></p>
+                            <p>2:<span class="_conf-score"></span></p>
+                            <p>3:<span class="_conf-score"></span></p>
+                            <p>4:<span class="_conf-score"></span></p>
+                            <p>5:<span class="_conf-score"></span></p>
+                            <p>6:<span class="_conf-score"></span></p>
+                            <p>7:<span class="_conf-score"></span></p>
+                            <p>8:<span class="_conf-score"></span></p>
+                            <p>9:<span class="_conf-score"></span></p>
                         </div>
                     </div>
-                    <div class="content-container">
-                        <div
-                            class="terminal-like-container"
-                            style="background-color: rgb(27, 27, 27)"
-                        >
-                            <div class="mac-app-top-bar">
-                                <div class="btn-container">
-                                    <button
-                                        onclick="window.location.href='https://haidousm.com/';"
-                                        class="top-bar-btn red"
-                                    ></button>
-                                    <button
-                                        class="top-bar-btn yellow clear"
-                                    ></button>
-                                    <button class="top-bar-btn green"></button>
-                                </div>
-                                <p>
-                                    Prediction: <span id="prediction">---</span>
-                                </p>
-                                <div
-                                    class="btn-container"
-                                    style="visibility: hidden"
-                                >
-                                    <button class="top-bar-btn red"></button>
-                                    <button class="top-bar-btn yellow"></button>
-                                    <button class="top-bar-btn green"></button>
-                                </div>
+                    <div class="terminal-like-container">
+                        <div class="mac-app-top-bar">
+                            <div class="btn-container">
+                                <button
+                                    onclick="window.location.href='https://haidousm.com/';"
+                                    class="top-bar-btn red"
+                                ></button>
+                                <button class="top-bar-btn yellow"></button>
+                                <button class="top-bar-btn green"></button>
                             </div>
-                            <div class="canvas">
-                                <img id="gif-src" src="assets/gifs/8.gif" />
-                            </div>
-                            <div class="demo-button-container">
-                                <a class="demo-buttons" href="/fine-mnist-demo"
-                                    >Demo</a
-                                >
-                                <a
-                                    class="demo-buttons"
-                                    href="https://github.com/haidousm/fine"
-                                    >GitHub</a
-                                >
+                            <h4 style="color: rgb(176, 176, 176)">
+                                UNIX Shell
+                            </h4>
+                            <div
+                                class="btn-container"
+                                style="visibility: hidden"
+                            >
+                                <button
+                                    onclick="window.location.href='https://haidousm.com/';"
+                                    class="top-bar-btn red"
+                                ></button>
+                                <button class="top-bar-btn yellow"></button>
+                                <button class="top-bar-btn green"></button>
                             </div>
                         </div>
-                        <div class="confidence-container">
-                            <div class="confidences">
-                                <p>0:<span class="conf-score"></span></p>
-                                <p>1:<span class="conf-score"></span></p>
-                                <p>2:<span class="conf-score"></span></p>
-                                <p>3:<span class="conf-score"></span></p>
-                                <p>4:<span class="conf-score"></span></p>
-                                <p>5:<span class="conf-score"></span></p>
-                                <p>6:<span class="conf-score"></span></p>
-                                <p>7:<span class="conf-score"></span></p>
-                                <p>8:<span class="conf-score"></span></p>
-                                <p>9:<span class="conf-score"></span></p>
+                        <div class="output-container"></div>
+                        <div class="demo-button-container">
+                            <a class="demo-buttons" href="/shell-demo">Demo</a>
+                            <a
+                                class="demo-buttons"
+                                href="https://github.com/haidousm/unix-shell"
+                                >GitHub</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-section-content">
+                    <div
+                        class="terminal-like-container"
+                        style="background-color: rgb(27, 27, 27)"
+                    >
+                        <div class="mac-app-top-bar">
+                            <div class="btn-container">
+                                <button
+                                    onclick="window.location.href='https://haidousm.com/';"
+                                    class="top-bar-btn red"
+                                ></button>
+                                <button
+                                    class="top-bar-btn yellow clear"
+                                ></button>
+                                <button class="top-bar-btn green"></button>
                             </div>
+                            <p>Prediction: <span id="prediction">---</span></p>
+                            <div
+                                class="btn-container"
+                                style="visibility: hidden"
+                            >
+                                <button class="top-bar-btn red"></button>
+                                <button class="top-bar-btn yellow"></button>
+                                <button class="top-bar-btn green"></button>
+                            </div>
+                        </div>
+                        <div class="canvas">
+                            <img id="gif-src" src="assets/images/gifs/8.gif" />
+                        </div>
+                        <div class="demo-button-container">
+                            <a class="demo-buttons" href="/fine-mnist-demo"
+                                >Demo</a
+                            >
+                            <a
+                                class="demo-buttons"
+                                href="https://github.com/haidousm/fine"
+                                >GitHub</a
+                            >
+                        </div>
+                    </div>
+                    <div class="confidence-container">
+                        <div class="confidences">
+                            <p>0:<span class="conf-score"></span></p>
+                            <p>1:<span class="conf-score"></span></p>
+                            <p>2:<span class="conf-score"></span></p>
+                            <p>3:<span class="conf-score"></span></p>
+                            <p>4:<span class="conf-score"></span></p>
+                            <p>5:<span class="conf-score"></span></p>
+                            <p>6:<span class="conf-score"></span></p>
+                            <p>7:<span class="conf-score"></span></p>
+                            <p>8:<span class="conf-score"></span></p>
+                            <p>9:<span class="conf-score"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer">
+        </section>
+        <footer>
+            <div class="footer-content">
                 <div
                     class="dock-app github"
                     onclick="goTo('https://github.com/haidousm/')"
@@ -144,7 +155,8 @@
                     onclick="toggleEmailClient(1)"
                 ></div>
             </div>
-        </div>
+        </footer>
+
         <div class="terminal-like-container email-client-container">
             <div class="mac-app-top-bar">
                 <div class="btn-container">
@@ -166,11 +178,7 @@
                 </div>
             </div>
 
-            <form
-                class="email-form"
-                action="/assets/submit_email.php"
-                method="post"
-            >
+            <div class="email-form">
                 <input
                     type="email"
                     name="email"
@@ -191,15 +199,17 @@
                     placeholder="Body"
                     class="email-form-input"
                 ></textarea>
-                <input
+                <button
                     type="submit"
-                    value="Send Email"
                     class="submit-email-btn"
-                />
-            </form>
+                    onclick="sendEmail()"
+                >
+                    Send Email
+                </button>
+            </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="assets/index.js"></script>
+        <script src="assets/js/index.js"></script>
     </body>
 </html>
