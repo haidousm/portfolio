@@ -9,7 +9,7 @@ const cmdSubmitted = (cmd) => {
     };
     xhttp.open(
         "POST",
-        "https://haidousm.com/shell-demo/inc/php/handle_request.php",
+        "https://haidousm.com/shell/inc/php/handle_request.php",
         true
     );
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
