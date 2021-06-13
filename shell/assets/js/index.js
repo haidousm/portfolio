@@ -66,3 +66,17 @@ function closeRick() {
     document.getElementsByClassName("rick-container")[0].style.display = "none";
     document.getElementById("rick").src = "";
 }
+
+document.addEventListener("readystatechange", (event) => {
+    var cmdInput = document.getElementsByClassName("cmd-input")[0];
+    cmdInput.focus();
+    cmdInput.select();
+
+    document
+        .getElementsByClassName("terminal-container")[0]
+        .addEventListener("click", () => {
+            var cmdInput = document.getElementsByClassName("cmd-input")[0];
+            cmdInput.focus();
+            cmdInput.select();
+        });
+});
