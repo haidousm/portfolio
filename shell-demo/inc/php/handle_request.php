@@ -7,9 +7,6 @@ if (isset($_POST["cmd"])) {
     $cmd = strtolower($cmd);
     if (strpos($cmd, 'sudo') !== false) {
 
-
-
-
         $res = '"rick"';
         die();
     }
