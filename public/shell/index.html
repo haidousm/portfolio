@@ -13,7 +13,6 @@
     <body class="bg-black bg-opacity-75">
         <div
             class="
-                terminal-container
                 container
                 mx-auto
                 flex
@@ -23,6 +22,7 @@
         >
             <div
                 class="
+                    terminal-container
                     w-10/12
                     md:w-8/12
                     lg:w-6/12
@@ -46,6 +46,7 @@
                                 bg-red-500
                                 hover:bg-red-700
                             "
+                            onclick="window.location.href='https://haidousm.com/';"
                         ></button>
                         <button
                             class="
@@ -92,7 +93,90 @@
                     </label>
                 </div>
             </div>
+
+            <div
+                class="
+                    rick-container
+                    w-11/12
+                    md:w-8/12
+                    lg:w-6/12
+                    h-96
+                    my-28
+                    bg-mac-gray-30
+                    rounded-md
+                    border border-mac-gray-74
+                    shadow-xl-heavy
+                    relative
+                    overflow-hidden
+                    hidden
+                "
+            >
+                <div
+                    class="
+                        py-1
+                        rounded-t-md
+                        bg-mac-gray-44
+                        grid grid-cols-3
+                        z-50
+                        absolute
+                        w-full
+                    "
+                >
+                    <div class="flex items-center">
+                        <button
+                            class="
+                                w-3
+                                h-3
+                                rounded-full
+                                ml-2
+                                mr-1
+                                bg-red-500
+                                hover:bg-red-700
+                            "
+                            onclick="closeRick()"
+                        ></button>
+                        <button
+                            class="
+                                w-3
+                                h-3
+                                rounded-full
+                                m-1
+                                bg-yellow-500
+                                hover:bg-yellow-700
+                            "
+                        ></button>
+                        <button
+                            class="
+                                w-3
+                                h-3
+                                rounded-full
+                                m-1
+                                bg-green-600
+                                hover:bg-green-700
+                            "
+                        ></button>
+                    </div>
+                    <div
+                        class="text-center flex items-center text-mac-gray-176"
+                    >
+                        <p class="text-xs lg:text-sm">
+                            root@haidousm.com
+                            <span class="hidden lg:inline">-- bash</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="container bg-white h-full z-0 absolute">
+                    <iframe
+                        style="border: none; pointer-events: none"
+                        id="rick"
+                        width="100%"
+                        height="100%"
+                        src=""
+                    ></iframe>
+                </div>
+            </div>
         </div>
+
         <script src="assets/js/shell.js"></script>
     </body>
 </html>

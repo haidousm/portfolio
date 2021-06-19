@@ -42,8 +42,12 @@ document.getElementsByClassName("cmd-input")[0].onkeyup = function (e) {
         updateScroll();
 
         if (cmd.includes("sudo")) {
-            document.getElementsByClassName("rick-container")[0].style.display =
-                "block";
+            document
+                .getElementsByClassName("rick-container")[0]
+                .classList.remove("hidden");
+            document
+                .getElementsByClassName("terminal-container")[0]
+                .classList.add("hidden");
             document.getElementById("rick").src =
                 "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&showinfo=0&controls=0&autohide=1";
         } else if (cmd == "clear") {
@@ -66,7 +70,12 @@ function updateScroll() {
 }
 
 function closeRick() {
-    document.getElementsByClassName("rick-container")[0].style.display = "none";
+    document
+        .getElementsByClassName("rick-container")[0]
+        .classList.add("hidden");
+    document
+        .getElementsByClassName("terminal-container")[0]
+        .classList.remove("hidden");
     document.getElementById("rick").src = "";
 }
 
