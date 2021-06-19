@@ -1,7 +1,7 @@
 {
   "scripts": {
 
-    "build-css": "yarn tailwindcss -o public/styles/tailwind.css"
+    "build-css": "yarn tailwindcss -o public/assets/styles/tailwind.css"
 
   },
   "devDependencies": {
