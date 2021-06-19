@@ -7,7 +7,7 @@
             content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
         />
         <title>Unix Shell</title>
-        <link rel="stylesheet" href="../styles/tailwind.css" />
+        <link rel="stylesheet" href="../assets/styles/tailwind.css" />
         <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
     </head>
     <body class="bg-black bg-opacity-75">
@@ -32,9 +32,20 @@
                     rounded-md
                     border border-mac-gray-74
                     shadow-xl-heavy
+                    overflow-auto overflow-x-hidden
                 "
             >
-                <div class="py-1 rounded-t-md bg-mac-gray-44 grid grid-cols-3">
+                <div
+                    class="
+                        py-1
+                        rounded-t-md
+                        bg-mac-gray-44
+                        grid grid-cols-3
+                        sticky
+                        top-0
+                        z-50
+                    "
+                >
                     <div class="flex items-center">
                         <button
                             class="
@@ -79,7 +90,7 @@
                     </div>
                 </div>
                 <div
-                    class="output-container container m-1 text-white text-sm"
+                    class="output-container m-1 text-white text-sm relative"
                 ></div>
                 <div class="container m-1 text-white text-sm">
                     <label for="cmd-input">
@@ -166,6 +177,7 @@
             </div>
         </div>
 
+        <script src="../assets/scripts/jquery-3.6.0.min.js"></script>
         <script src="assets/js/shell.js"></script>
     </body>
 </html>
