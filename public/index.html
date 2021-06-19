@@ -10,13 +10,20 @@
         <link rel="stylesheet" href="assets/styles/tailwind.css" />
         <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
     </head>
-    <body class="bg-black bg-opacity-75 font-mac-terminal">
-        <div class="container mx-auto text-center mt-20">
+    <body
+        class="
+            bg-black bg-opacity-75
+            font-mac-terminal
+            flex flex-col
+            min-h-screen
+        "
+    >
+        <div class="container mx-auto text-center mt-16">
             <h1 class="text-white text-4xl md:text-5xl">Hi, I'm Moussa.</h1>
         </div>
         <div class="container mx-auto text-center mt-3 p-5">
             <h2 class="text-white text-xl md:text-2xl">
-                Check out some of my projects
+                Here's a couple of my projects
             </h2>
             <div class="container grid grids-cols-1 lg:grid-cols-2 gap-10 mt-8">
                 <div class="container w-full flex justify-center">
@@ -51,7 +58,7 @@
                             terminal-container
                             h-80
                             lg:h-60
-                            w-full
+                            w-4/5
                             md:w-2/3
                             lg:w-3/5
                             bg-mac-gray-30
@@ -186,7 +193,7 @@
                             terminal-container
                             h-80
                             lg:h-60
-                            w-full
+                            w-4/5
                             md:w-2/3
                             lg:w-3/5
                             bg-mac-gray-30
@@ -263,7 +270,7 @@
                         <div class="container h-full w-full">
                             <img
                                 id="gif-src"
-                                class="h-full"
+                                class="h-full w-full"
                                 src="assets/images/gifs/8.gif"
                             />
                         </div>
@@ -457,6 +464,49 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="mt-auto h-32 w-full flex items-center justify-center">
+            <div
+                class="
+                    bg-mac-gray-30 bg-opacity-20
+                    rounded-3xl
+                    w-64
+                    flex
+                    justify-around
+                    py-3
+                "
+            >
+                <a
+                    href="https://github.com/haidousm"
+                    class="
+                        transition-all
+                        duration-300
+                        transform
+                        hover:scale-125
+                        hover:-translate-y-0.5
+                    "
+                    ><img
+                        src="assets/images/github_logo.png"
+                        class="w-20 rounded-xl"
+                        alt="github_logo"
+                /></a>
+                <a
+                    href="https://linkedin.com/in/haidousm"
+                    class="
+                        bg-white
+                        rounded-xl
+                        transform
+                        transition-all
+                        duration-300
+                        hover:scale-125
+                        hover:-translate-y-0.5
+                    "
+                    ><img
+                        src="assets/images/linkedin_logo.png"
+                        class="w-20 rounded-xl"
+                        alt="linkedin_logo"
+                /></a>
             </div>
         </div>
         <script src="assets/scripts/jquery-3.6.0.min.js"></script>
