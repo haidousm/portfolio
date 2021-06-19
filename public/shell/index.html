@@ -2,7 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
         <title>Unix Shell</title>
         <link rel="stylesheet" href="../styles/tailwind.css" />
         <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
@@ -75,17 +78,12 @@
                     </div>
                 </div>
                 <div
-                    class="
-                        output-container
-                        container
-                        m-1
-                        text-white text-xs
-                        lg:text-sm
-                    "
+                    class="output-container container m-1 text-white text-sm"
                 ></div>
-                <div class="container m-1 text-white text-xs lg:text-sm">
+                <div class="container m-1 text-white text-sm">
                     <label for="cmd-input">
-                        root@haidousm.com $
+                        root<span class="hidden md:inline">@haidousm.com</span>
+                        $
                         <input
                             type="text"
                             name="cmd-input"

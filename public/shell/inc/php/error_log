@@ -1,8 +1,0 @@
-[14-Jan-2021 04:24:00 America/New_York] PHP Fatal error:  Uncaught Error: Function name must be a string in /home/haidwnih/public_html/shell-demo/php/handle_request.php:22
-Stack trace:
-#0 {main}
-  thrown in /home/haidwnih/public_html/shell-demo/php/handle_request.php on line 22
-[14-Jan-2021 04:24:25 America/New_York] PHP Fatal error:  Uncaught Error: Function name must be a string in /home/haidwnih/public_html/shell-demo/php/handle_request.php:22
-Stack trace:
-#0 {main}
-  thrown in /home/haidwnih/public_html/shell-demo/php/handle_request.php on line 22

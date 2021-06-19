@@ -20,9 +20,13 @@ if (isset($_POST["cmd"])) {
 
     $output = NULL;
     $err = NULL;
-    chdir('demo-folder');
 
-    exec('../../c/demo-shell "' . $cmd . '"', $output);
+    $demo_folder_path = realpath('../php/demo-folder');
+    chdir($demo_folder_path);
+
+    $path = realpath('../../c/demo-shell');
+    exec($path.' "' . $cmd . '" 2>&1', $output);
+    
     $res = '"';
     foreach ($output as $key => $line) {
         if ($key == 0) {
