@@ -1,41 +1,37 @@
 <?php
 
 
-if (isset($_POST["cmd"])) {
+if (isset($_POST["json_payload"]) && !empty($_POST["json_payload"])){
 
-    $cmd = $_POST["cmd"];
+    $payload = $_POST["json_payload"];
+
+    $cmd = $payload["cmd"];
     $cmd = strtolower($cmd);
-    if (strpos($cmd, 'sudo') !== false) {
+    if (strpos($cmd, "sudo") !== false) {
 
-        $res = '"rick"';
-        die();
+        $output = "rick";
+
+    }else if (strpos($cmd, 'rm') !== false || strpos($cmd, 'cd') !== false || strpos($cmd, 'touch') !== false) {
+        $output = "you naughty naughty";
+
+    }else{
+
+        $demo_folder_path = realpath('../php/demo-folder');
+        chdir($demo_folder_path);
+
+        $path = realpath('../../c/demo-shell');
+        exec($path.' "' . $cmd . '" 2>&1', $output);
+
     }
 
-    if (strpos($cmd, 'rm') !== false || strpos($cmd, 'cd') !== false || strpos($cmd, 'touch') !== false) {
+    if(empty($output) || !isset($output)){
 
-        $res = '"you naughty naughty"';
-        echo $res;
-        die();
+        $output = array(["error: invalid command."]);
     }
 
-    $output = NULL;
-    $err = NULL;
+    $res = array('status'=> 200, 'output'=> $output);
+    $json_res = json_encode($res);
+    echo $json_res;
+    die();
 
-    $demo_folder_path = realpath('../php/demo-folder');
-    chdir($demo_folder_path);
-
-    $path = realpath('../../c/demo-shell');
-    exec($path.' "' . $cmd . '" 2>&1', $output);
-    
-    $res = '"';
-    foreach ($output as $key => $line) {
-        if ($key == 0) {
-            $res .=  $line . '"';
-        } else {
-
-            $res .= ',"' . $line . '"';
-        }
-    }
-
-    echo $res;
 }
