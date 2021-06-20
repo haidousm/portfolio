@@ -1,9 +1,50 @@
-const goTo = (url) => {
-    window.location.href = url;
-};
+$(document).ready(() => {
+    let shellOutput = initShellOutput();
+    let i = 0;
+    setInterval(() => {
+        if (i == shellOutput.length) {
+            i = 0;
+        }
+        printOutput(i, shellOutput);
+        i++;
+    }, 1000);
 
-pTags = [];
-const createShellDemo = () => {
+    let mnistDemoData = [
+        [1, [0.1, 0.9, 0.3, 0.2, 0.25, 0.17, 0.43, 0.23, 0.1, 0.24]],
+        [2, [0.1, 0.3, 0.9, 0.25, 0.48, 0.23, 0.58, 0.49, 0.25, 0.43]],
+        [3, [0.25, 0.1, 0.3, 0.9, 0.28, 0.11, 0.06, 0.32, 0.43, 0.23]],
+        [4, [0.12, 0.15, 0.06, 0.3, 0.92, 0.11, 0.26, 0.12, 0.23, 0.53]],
+        [5, [0.12, 0.15, 0.06, 0.25, 0.26, 0.92, 0.26, 0.12, 0.23, 0.53]],
+        [8, [0.12, 0.15, 0.06, 0.25, 0.26, 0.24, 0.26, 0.12, 0.91, 0.53]],
+    ];
+
+    let j = 0;
+    setInterval(() => {
+        if (j == mnistDemoData.length) {
+            j = 0;
+        }
+
+        let gifSrc = "assets/images/gifs/" + mnistDemoData[j][0] + ".gif";
+        playGif(gifSrc);
+        confidences = mnistDemoData[j][1];
+        setTimeout(function () {
+            jQuery.each(jQuery(".conf-score"), function (index, elem) {
+                let percentage = (confidences[index] * 100).toPrecision(8);
+                jQuery(elem).animate(
+                    {
+                        width: 3 + percentage * 1.3 + "px",
+                    },
+                    300
+                );
+            });
+        }, 2000);
+
+        j++;
+    }, 2500);
+});
+
+const initShellOutput = () => {
+    let shellOutput = [];
     shellOutputLines = [
         "ls -al",
         "drwx------@  99 moussa  staff    3168 Dec  3 07:53 Library<br> drwxr-xr-x   10 moussa  staff     320 Jan 12 13:15 Local Sites<br> drwx------+  12 moussa  staff     384 Oct  6 21:17 Movies<br> drwx------+   8 moussa  staff     256 Jul 28 17:12 Music<br> drwx------    3 moussa  staff      96 Oct  9 13:56 Parallels<br> drwx------+  11 moussa  staff     352 Sep 28 12:52 Pictures<br> drwxr-xr-x+   4 moussa  staff     128 Dec 29 12:20 Public<br> drwxr-xr-x    4 moussa  staff     128 Dec 27 17:09 PycharmProjects<br> drwxr-xr-x    6 moussa  staff     192 Aug 20 00:02 WindowsSupport",
@@ -17,70 +58,29 @@ const createShellDemo = () => {
         const pTag = document.createElement("p");
         pTag.id = i;
         if (i % 2 == 0) {
-            pTag.innerHTML = "root@haidousm.com $ " + shellOutputLines[i];
+            $(pTag).html("root@haidousm.com $ " + shellOutputLines[i]);
         } else {
-            pTag.innerHTML = shellOutputLines[i];
+            $(pTag).html(shellOutputLines[i]);
         }
 
-        pTags.push(pTag);
+        shellOutput.push(pTag);
     }
+
+    return shellOutput;
 };
 
-const startShellDemo = (i) => {
-    pTag = pTags[i];
-    document.getElementsByClassName("output-container")[0].appendChild(pTag);
+const printOutput = (i, shellOutput) => {
+    pTag = shellOutput[i];
+    jQuery(".output-container").append($(pTag));
 
     if (i % 2 == 1 && i - 2 >= 0) {
-        pTags[i - 2].remove();
+        shellOutput[i - 2].remove();
     }
 };
-
-let j = 0;
-createShellDemo();
-setInterval(() => {
-    if (j == pTags.length) {
-        j = 0;
-    }
-    startShellDemo(j);
-    j++;
-}, 1000);
-
-gifs = [
-    [1, [0.1, 0.9, 0.3, 0.2, 0.25, 0.17, 0.43, 0.23, 0.1, 0.24]],
-    [2, [0.1, 0.3, 0.9, 0.25, 0.48, 0.23, 0.58, 0.49, 0.25, 0.43]],
-    [3, [0.25, 0.1, 0.3, 0.9, 0.28, 0.11, 0.06, 0.32, 0.43, 0.23]],
-    [4, [0.12, 0.15, 0.06, 0.3, 0.92, 0.11, 0.26, 0.12, 0.23, 0.53]],
-    [5, [0.12, 0.15, 0.06, 0.25, 0.26, 0.92, 0.26, 0.12, 0.23, 0.53]],
-    [8, [0.12, 0.15, 0.06, 0.25, 0.26, 0.24, 0.26, 0.12, 0.91, 0.53]],
-];
 
 const playGif = (gifSrc) => {
     document.getElementById("gif-src").src = gifSrc;
 };
-
-let k = 0;
-setInterval(() => {
-    if (k == gifs.length) {
-        k = 0;
-    }
-    let gifSrc = "assets/images/gifs/" + gifs[k][0] + ".gif";
-    playGif(gifSrc);
-    confidences = gifs[k][1];
-
-    setTimeout(function () {
-        jQuery.each(jQuery(".conf-score"), function (index, elem) {
-            let percentage = (confidences[index] * 100).toPrecision(8);
-            jQuery(elem).animate(
-                {
-                    width: 3 + percentage * 1.3 + "px",
-                },
-                300
-            );
-        });
-    }, 1500);
-
-    k++;
-}, 2500);
 
 // const toggleEmailClient = (display) => {
 //     if (display) {
