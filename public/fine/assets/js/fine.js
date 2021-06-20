@@ -2,6 +2,7 @@ let jsonData;
 let continueAnimating = true;
 let currentFrameID = 0;
 $(document).ready(() => {
+    window.scrollTo(0, screen.height / 2 - 350);
     const canvas = $("canvas");
     const context = canvas[0].getContext("2d");
     context.lineCap = "round";
