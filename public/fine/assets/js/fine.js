@@ -9,7 +9,10 @@ $(document).ready(() => {
     context.strokeStyle = "#fff";
 
     canvas.on("mousedown", startDrawing);
+    canvas.on("touchstart", startDrawing);
     canvas.on("mousemove", drawLine);
+    canvas.on("touchmove", drawLine);
+    canvas.on("touchend", stopDrawing);
     canvas.on("mouseup", stopDrawing);
     canvas.on("mouseout", stopDrawing);
 
@@ -32,15 +35,29 @@ const stopDrawing = () => {
 };
 const startDrawing = (event) => {
     isMouseDown = true;
+    var touches = event.touches || [];
+    var touch = touches[0] || {};
     [x, y] = [event.offsetX, event.offsetY];
+    const canvas = $(event.target);
+    if (!jQuery.isEmptyObject(touch)) {
+        x = touch.pageX - canvas[0].offsetLeft;
+        y = touch.pageY - canvas[0].offsetTop;
+    }
 };
 
 const drawLine = (event) => {
+    var touches = event.touches || [];
+    var touch = touches[0] || {};
     if (isMouseDown) {
         const canvas = $(event.target);
         const context = canvas[0].getContext("2d");
-        const newX = event.offsetX;
-        const newY = event.offsetY;
+        let newX = event.offsetX;
+        let newY = event.offsetY;
+        if (!jQuery.isEmptyObject(touch)) {
+            newX = touch.pageX - canvas[0].offsetLeft;
+            newY = touch.pageY - canvas[0].offsetTop;
+        }
+
         context.beginPath();
         context.moveTo(x, y);
         context.lineTo(newX, newY);
