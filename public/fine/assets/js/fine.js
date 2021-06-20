@@ -1,0 +1,125 @@
+let jsonData;
+let continueAnimating = true;
+let currentFrameID = 0;
+$(document).ready(() => {
+    const canvas = $("canvas");
+    const context = canvas[0].getContext("2d");
+    context.lineCap = "round";
+    context.lineWidth = 30;
+    context.strokeStyle = "#fff";
+
+    canvas.on("mousedown", startDrawing);
+    canvas.on("mousemove", drawLine);
+    canvas.on("mouseup", stopDrawing);
+    canvas.on("mouseout", stopDrawing);
+
+    jQuery(".clear").on("click", () => {
+        context.clearRect(0, 0, canvas.width(), canvas.height());
+    });
+
+    jQuery(".predict").on("click", () => {
+        convertCanvasToJSON(canvas);
+
+        fetchPrediction(jsonData);
+    });
+});
+
+let x = 0,
+    y = 0;
+let isMouseDown = false;
+const stopDrawing = () => {
+    isMouseDown = false;
+};
+const startDrawing = (event) => {
+    isMouseDown = true;
+    [x, y] = [event.offsetX, event.offsetY];
+};
+
+const drawLine = (event) => {
+    if (isMouseDown) {
+        const canvas = $(event.target);
+        const context = canvas[0].getContext("2d");
+        const newX = event.offsetX;
+        const newY = event.offsetY;
+        context.beginPath();
+        context.moveTo(x, y);
+        context.lineTo(newX, newY);
+        context.stroke();
+        x = newX;
+        y = newY;
+    }
+};
+
+const convertCanvasToJSON = (canvas) => {
+    const context = canvas[0].getContext("2d");
+
+    let canvasWidth = canvas.width();
+    let canvasHeight = canvas.height();
+    var imageData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+    data = imageData.data;
+
+    var oneChannelData = [];
+    for (var i = 0; i < data.length; i += 4) {
+        var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+        data[i] = avg;
+        oneChannelData.push(avg);
+    }
+
+    var serverData = [];
+    for (var i = 0; i < canvasWidth; i++) {
+        rowData = [];
+        for (var j = canvasWidth * i; j < i * canvasWidth + canvasWidth; j++) {
+            rowData.push(oneChannelData[j]);
+        }
+
+        serverData.push(rowData);
+    }
+
+    jsonData = JSON.stringify(serverData);
+};
+
+const fetchPrediction = (jsonData) => {
+    $.ajax({
+        url: "https://haidousm.pythonanywhere.com/predict",
+        type: "post",
+        data: jsonData,
+        beforeSend: () => {
+            continueAnimating = true;
+            animatePrediction(jQuery("#prediction"));
+        },
+        success: (response) => {
+            continueAnimating = false;
+            window.cancelAnimationFrame(currentFrameID);
+            response = `[${response}]`;
+
+            let confidences = JSON.parse(response);
+
+            let prediction = confidences.shift();
+            jQuery("#prediction").html(prediction);
+            jQuery.each(jQuery(".conf-score"), function (index, elem) {
+                let percentage = (confidences[index] * 100).toPrecision(8);
+                jQuery(elem).animate(
+                    {
+                        width: 3 + percentage * 1.3 + "px",
+                    },
+                    300
+                );
+            });
+        },
+    });
+};
+
+function animatePrediction(obj) {
+    const step = () => {
+        obj.html(randomIntFromInterval(0, 9));
+        if (continueAnimating) {
+            currentFrameID = window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+function randomIntFromInterval(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
