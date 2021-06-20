@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <title>Fine Neural Network</title>
+        <link rel="stylesheet" href="../assets/styles/tailwind.css" />
+        <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
+    </head>
+    <body class="bg-black bg-opacity-75 h-screen">
+        <div
+            class="
+                container
+                mx-auto
+                w-11/12
+                lg:w-5/12
+                text-mac-gray-176 text-sm
+                relative
+                -bottom-20
+                px-5
+            "
+        >
+            <div class="flex flex-col p-0">
+                <div class="flex items-center">
+                    <button
+                        class="
+                            w-3
+                            h-3
+                            rounded-full
+                            ml-2
+                            mr-1
+                            bg-red-500
+                            hover:bg-red-700
+                        "
+                        onclick="window.location.href='https://haidousm.com/';"
+                    ></button>
+                    <p>: Exit</p>
+                </div>
+                <div class="flex items-center">
+                    <button
+                        class="
+                            w-3
+                            h-3
+                            rounded-full
+                            ml-2
+                            mr-1
+                            bg-yellow-500
+                            hover:bg-yellow-700
+                        "
+                    ></button>
+                    <p>: Clear Drawing</p>
+                </div>
+                <div class="flex items-center">
+                    <button
+                        class="
+                            w-3
+                            h-3
+                            rounded-full
+                            ml-2
+                            mr-1
+                            bg-green-600
+                            hover:bg-green-700
+                        "
+                    ></button>
+                    <p>: Get Prediction</p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="
+                container
+                mx-auto
+                flex
+                h-full
+                justify-center
+                font-mac-terminal
+            "
+        >
+            <div
+                class="
+                    terminal-container
+                    w-11/12
+                    lg:w-5/12
+                    h-4/6
+                    my-28
+                    bg-mac-gray-30
+                    rounded-md
+                    border border-mac-gray-74
+                    shadow-xl-heavy
+                    overflow-hidden
+                "
+            >
+                <div
+                    class="
+                        py-1
+                        rounded-t-md
+                        bg-mac-gray-44
+                        grid grid-cols-3
+                        sticky
+                        top-0
+                        z-50
+                    "
+                >
+                    <div class="flex items-center">
+                        <button
+                            class="
+                                w-3
+                                h-3
+                                rounded-full
+                                ml-2
+                                mr-1
+                                bg-red-500
+                                hover:bg-red-700
+                            "
+                            onclick="window.location.href='https://haidousm.com/';"
+                        ></button>
+                        <button
+                            class="
+                                w-3
+                                h-3
+                                rounded-full
+                                m-1
+                                bg-yellow-500
+                                hover:bg-yellow-700
+                            "
+                        ></button>
+                        <button
+                            class="
+                                w-3
+                                h-3
+                                rounded-full
+                                m-1
+                                bg-green-600
+                                hover:bg-green-700
+                            "
+                        ></button>
+                    </div>
+                    <div
+                        class="
+                            text-center
+                            flex
+                            items-center
+                            justify-center
+                            text-mac-gray-176
+                        "
+                    >
+                        <p class="text-sm">
+                            Prediction:
+                            <span class="hidden lg:inline">---</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="container w-full h-full bg-red-100"></div>
+            </div>
+            <div
+                class="
+                    confidence-container
+                    mx-5
+                    text-left text-mac-gray-176 text-xl
+                    my-auto
+                    hidden
+                    md:block
+                "
+            >
+                <p class="relative">
+                    0:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-5
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    1:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-3
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    2:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-8
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    3:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-2
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    4:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-9
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    5:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-4
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    6:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-5
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    7:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-7
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    8:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-10
+                        "
+                    ></span>
+                </p>
+                <p class="relative">
+                    9:<span
+                        class="
+                            conf-score
+                            bg-mac-gray-30
+                            inline-block
+                            absolute
+                            h-3
+                            top-2
+                            w-5
+                        "
+                    ></span>
+                </p>
+            </div>
+        </div>
+
+        <script src="../assets/scripts/jquery-3.6.0.min.js"></script>
+    </body>
+</html>
