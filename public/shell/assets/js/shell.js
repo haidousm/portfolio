@@ -63,7 +63,7 @@ const cmdSubmitted = (cmd) => {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "https://haidousm.com/shell/inc/php/handle_request.php",
+        url: "/shell/inc/php/handle_request.php",
         data: { json_payload },
         success: (res) => {
             printOutput(res.output);
