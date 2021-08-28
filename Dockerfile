@@ -1,7 +1,12 @@
 FROM node:alpine as compile-tailwindcss
 WORKDIR /app
 COPY . .
-RUN yarn install && yarn build-css
+RUN yarn install && yarn build-css \ 
+    && apk --no-cache add build-base \
+    && gcc public/shell/inc/c/demo-shell.c -o public/shell/inc/c/demo-shell
 
-FROM nginx:alpine
-COPY --from=compile-tailwindcss /app/public /usr/share/nginx/html
+FROM haidousm/php-nginx:1.0.0
+COPY --from=compile-tailwindcss --chown=nobody /app/public /var/www/html
+USER root
+RUN chown -R root /var/www/html/shell/inc/php/demo-folder
+USER nobody
