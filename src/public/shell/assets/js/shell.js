@@ -59,17 +59,22 @@ const printOutput = (output) => {
 };
 
 const cmdSubmitted = (cmd) => {
-    let json_payload = { cmd: cmd };
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "/shell/inc/php/handle_request.php",
-        data: { json_payload },
-        success: (res) => {
-            printOutput(res.output);
-        },
-        error: console.error,
-    });
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({ command: cmd });
+
+    var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+    };
+
+    fetch("https://api.moussa.codes/shell/execute", requestOptions)
+        .then((response) => response.json())
+        .then((result) => printOutput(result.command_output.split("\n")))
+        .catch((error) => console.log("error", error));
 };
 
 const closeRick = () => {
