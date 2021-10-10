@@ -1,15 +1,11 @@
 FROM node:alpine as compile-tailwindcss
 WORKDIR /app
 COPY /src .
-RUN yarn install && yarn build-css \ 
-    && apk --no-cache add build-base \
-    && gcc public/shell/inc/c/demo-shell.c -o public/shell/inc/c/demo-shell
+RUN yarn install && yarn build-css 
 
-FROM nginx
+FROM nginxinc/nginx-unprivileged:1.20-alpine
 LABEL Maintainer="Moussa Haidous <moussa@haidousm.com>"
-LABEL Description="my portfolio build on Alpine Linux"
-LABEL version="1.0.0"
-COPY --from=compile-tailwindcss --chown=nobody /app/public /var/www/html
-USER root
-RUN chown -R root /var/www/html/shell/inc/php/demo-folder
+LABEL Description="haidousm.com frontend"
+LABEL version="1.0.1"
+COPY --from=compile-tailwindcss --chown=nobody /app/public /usr/share/nginx/html/
 USER nobody
