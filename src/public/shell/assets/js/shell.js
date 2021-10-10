@@ -59,14 +59,14 @@ const printOutput = (output) => {
 };
 
 const cmdSubmitted = (cmd) => {
-    let json_payload = { cmd: cmd };
+    let json_payload = { command: cmd };
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "/shell/inc/php/handle_request.php",
+        url: "https://api.moussa.codes/shell/execute",
         data: { json_payload },
         success: (res) => {
-            printOutput(res.output);
+            printOutput(res.command_output);
         },
         error: console.error,
     });

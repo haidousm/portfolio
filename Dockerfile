@@ -5,7 +5,7 @@ RUN yarn install && yarn build-css \
     && apk --no-cache add build-base \
     && gcc public/shell/inc/c/demo-shell.c -o public/shell/inc/c/demo-shell
 
-FROM haidousm/php-nginx:1.0.0
+FROM nginx
 LABEL Maintainer="Moussa Haidous <moussa@haidousm.com>"
 LABEL Description="my portfolio build on Alpine Linux"
 LABEL version="1.0.0"
