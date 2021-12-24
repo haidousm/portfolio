@@ -8,4 +8,5 @@ LABEL Maintainer="Moussa Haidous <moussa@haidousm.com>"
 LABEL Description="haidousm.com frontend"
 LABEL version="1.0.1"
 COPY --from=compile-tailwindcss --chown=nobody /app/public /usr/share/nginx/html/
+COPY --chown=nobody nginx.conf /etc/nginx/conf.d/default.conf
 USER nobody
