@@ -108,12 +108,14 @@ const fetchPrediction = (jsonData) => {
         success: (response) => {
             continueAnimating = false;
             window.cancelAnimationFrame(currentFrameID);
+            response = `[${response}]`;
 
-            let prediction = response.prediction;
+            let confidences = JSON.parse(response);
+
+            let prediction = confidences.shift();
             jQuery("#prediction").html(prediction);
-            let confidence = response.confidence;
             jQuery.each(jQuery(".conf-score"), function (index, elem) {
-                let percentage = (confidence[index] * 100).toPrecision(8);
+                let percentage = (confidences[index] * 100).toPrecision(8);
                 jQuery(elem).animate(
                     {
                         width: 3 + percentage * 1.3 + "px",
