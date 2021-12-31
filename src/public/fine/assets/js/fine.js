@@ -98,7 +98,7 @@ const convertCanvasToJSON = (canvas) => {
 
 const fetchPrediction = (jsonData) => {
     $.ajax({
-        url: "/fapi/predict",
+        url: "https://haidousm.pythonanywhere.com/predict",
         type: "post",
         data: jsonData,
         beforeSend: () => {
