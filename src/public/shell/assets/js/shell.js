@@ -1,5 +1,7 @@
 const history = [];
 
+const API_URL = "https://shell.moussa.codes/api/execute";
+
 $(document).ready(() => {
     let cmdInput = $(".cmd-input");
     cmdInput.trigger("focus");
@@ -71,7 +73,7 @@ const cmdSubmitted = (cmd) => {
         redirect: "follow",
     };
 
-    fetch("https://api.moussa.codes/shell/execute", requestOptions)
+    fetch(API_URL, requestOptions)
         .then((response) => response.json())
         .then((result) => printOutput(result.command_output.split("\n")))
         .catch((error) => console.log("error", error));
