@@ -1,6 +1,6 @@
 const history = [];
 
-const API_URL = "https://shell.moussa.codes/api/execute";
+const API_URL = "https://shell.haidousm.com/api/execute";
 
 $(document).ready(() => {
     let cmdInput = $(".cmd-input");
