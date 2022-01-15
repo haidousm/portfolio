@@ -6,7 +6,7 @@ interface Props {
 }
 function Terminal({ statusBarHTML, children }: Props) {
     return (
-        <div className="h-60 w-full bg-mac-gray-30 rounded-md">
+        <div className="w-full h-full bg-mac-gray-30 rounded-md">
             <TerminalStatusBar statusBarHTML={statusBarHTML} />
             {children}
         </div>
