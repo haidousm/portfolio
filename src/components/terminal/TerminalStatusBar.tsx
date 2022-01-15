@@ -3,7 +3,7 @@ interface Props {
 }
 function TerminalStatusBar({ statusBarHTML }: Props) {
     return (
-        <div className="py-1 rounded-t-md bg-mac-gray-44 grid grid-cols-3">
+        <div className="py-1 rounded-t-md bg-mac-gray-44 grid grid-cols-3 absolute top-0 left-0 right-0 z-10">
             <div className="flex items-center">
                 <button
                     className="

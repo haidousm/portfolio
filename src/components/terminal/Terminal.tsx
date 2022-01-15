@@ -6,9 +6,11 @@ interface Props {
 }
 function Terminal({ statusBarHTML, children }: Props) {
     return (
-        <div className="w-full h-full bg-mac-gray-30 rounded-md">
+        <div className="w-full h-full bg-mac-gray-30 rounded-md relative">
             <TerminalStatusBar statusBarHTML={statusBarHTML} />
-            {children}
+            <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 z-0">
+                <div className="w-full h-full">{children}</div>
+            </div>
         </div>
     );
 }
