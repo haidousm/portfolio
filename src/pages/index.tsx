@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Heading from "../components/homepage/Heading";
+import ProjectsContainer from "../components/homepage/ProjectsContainer";
 
 const Home: NextPage = () => {
     return (
@@ -11,8 +13,9 @@ const Home: NextPage = () => {
                     content="Moussa Haidous, Software Engineer"
                 />
             </Head>
-            <main>
-                <h1>Hello</h1>
+            <main className="bg-black bg-opacity-75 min-h-screen flex flex-col items-center font-mac-terminal">
+                <Heading />
+                <ProjectsContainer />
             </main>
         </div>
     );
