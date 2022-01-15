@@ -14,7 +14,7 @@ function ProjectsContainer() {
                         <span className="hidden lg:inline"> -- bash</span>
                     </Fragment>
                 }
-            />
+            ></Terminal>
         </div>
     );
 }
