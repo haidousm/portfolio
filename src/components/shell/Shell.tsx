@@ -15,14 +15,13 @@ interface Output {
 }
 
 const SHELL_API_URL = "https://shell.haidousm.com/api/execute";
+const BANNED_COMMANDS = ["sudo", "rm", "touch", "wget", "curl"];
 
 function ShellDemo() {
     const [history, setHistory] = useState<Output[]>([]);
     const [output, setOutput] = useState<Output[]>([]);
 
     const [isRickRollTime, setIsRickRollTime] = useState(false);
-
-    const bannedCommands = ["sudo", "rm"];
 
     const handleEnterClicked = async (
         event: React.KeyboardEvent<HTMLInputElement>
@@ -33,7 +32,7 @@ function ShellDemo() {
             await executeCommand(cmd);
             const container = document.getElementById("shell-container");
             if (container) {
-                // container.scrollTop = container.scrollHeight + 1000;
+                container.scrollTop = container.scrollHeight + 1000;
             }
         }
     };
@@ -82,7 +81,7 @@ function ShellDemo() {
                 break;
         }
 
-        const isBanned = bannedCommands.some((bannedCommand) => {
+        const isBanned = BANNED_COMMANDS.some((bannedCommand) => {
             return command.includes(bannedCommand);
         });
         if (isBanned) {
