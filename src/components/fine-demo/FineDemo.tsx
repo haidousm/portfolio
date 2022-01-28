@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Canvas from "../canvas/Canvas";
 import Terminal from "../terminal/Terminal";
 import CanvasDraw from "react-canvas-draw";
+import ConfidenceBars from "./ConfidenceBars";
 
 interface Prediction {
     confidence: number[];
@@ -37,8 +38,12 @@ function FineDemo() {
     };
 
     const clearCanvas = () => {
-        setPrediction(null);
-        canvas!.clear();
+        // setPrediction(null);
+        // canvas!.clear();
+        setPrediction({
+            confidence: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+            prediction: 0,
+        });
     };
 
     const startAnimatingPrediction = () => {
@@ -59,35 +64,47 @@ function FineDemo() {
     };
 
     return (
-        <div
-            className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/3 border border-mac-gray-74
+        <div className="container flex items-center justify-center">
+            <div
+                className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 xl:w-1/3  border border-mac-gray-74
+            
 "
-        >
-            <Terminal
-                statusBarHTML={
-                    <p className="text-sm flex items-center">
-                        <span className="hidden lg:inline">Prediction: </span>
-                        <span
-                            className="
+            >
+                <Terminal
+                    statusBarHTML={
+                        <p className="text-sm flex items-center">
+                            <span className="hidden lg:inline">
+                                Prediction:{" "}
+                            </span>
+                            <span
+                                className="
                                     lg:ml-1
                                     text-green-500 text-3xl
                                     lg:text-xl
                                 "
-                        >
-                            {prediction ? prediction?.prediction : "---"}
-                        </span>
-                    </p>
+                            >
+                                {prediction ? prediction?.prediction : "---"}
+                            </span>
+                        </p>
+                    }
+                    orangeHandler={() => {
+                        clearCanvas();
+                    }}
+                >
+                    {/* <Canvas
+                        canvas={canvas}
+                        setCanvas={setCanvas}
+                        onChange={onChange}
+                    /> */}
+                    <h1></h1>
+                </Terminal>
+            </div>
+            <ConfidenceBars
+                className="hidden lg:block"
+                confidence={
+                    prediction?.confidence ?? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }
-                orangeHandler={() => {
-                    clearCanvas();
-                }}
-            >
-                <Canvas
-                    onChange={onChange}
-                    canvas={canvas}
-                    setCanvas={setCanvas}
-                />
-            </Terminal>
+            />
         </div>
     );
 }
