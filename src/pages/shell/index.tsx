@@ -2,7 +2,7 @@ import axios from "axios";
 import { NextPage } from "next";
 import Head from "next/head";
 import React, { Fragment, useEffect, useState } from "react";
-import ShellDemo from "../../components/shell/Shell";
+import ShellDemo from "../../components/shell-demo/ShellDemo";
 
 const Shell: NextPage = () => {
     const focusOnCmdInput = () => {
@@ -26,12 +26,7 @@ const Shell: NextPage = () => {
                 <link rel="icon" href="/images/shell-favi.ico" />
             </Head>
             <main className="min-h-screen flex flex-col items-center justify-center font-mac-terminal">
-                <div
-                    className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 border border-mac-gray-74
-"
-                >
-                    <ShellDemo />
-                </div>
+                <ShellDemo />
             </main>
         </div>
     );

@@ -31,7 +31,7 @@ function FinePreview() {
                                         p-2
                                         hover:bg-white hover:text-black
                                     "
-                        href="/shell"
+                        href="/fine"
                     >
                         Demo
                     </a>
