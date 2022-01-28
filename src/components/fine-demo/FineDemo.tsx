@@ -38,12 +38,8 @@ function FineDemo() {
     };
 
     const clearCanvas = () => {
-        // setPrediction(null);
-        // canvas!.clear();
-        setPrediction({
-            confidence: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-            prediction: 0,
-        });
+        setPrediction(null);
+        canvas!.clear();
     };
 
     const startAnimatingPrediction = () => {
@@ -91,12 +87,11 @@ function FineDemo() {
                         clearCanvas();
                     }}
                 >
-                    {/* <Canvas
+                    <Canvas
                         canvas={canvas}
                         setCanvas={setCanvas}
                         onChange={onChange}
-                    /> */}
-                    <h1></h1>
+                    />
                 </Terminal>
             </div>
             <ConfidenceBars
