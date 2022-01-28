@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import ContainerOverlay from "../overlays/HoverOverlay";
 import Terminal from "../terminal/Terminal";
@@ -83,8 +84,9 @@ function ShellPreview() {
                                     justify-around
                                 "
                 >
-                    <a
-                        className="
+                    <Link href={"/shell"}>
+                        <a
+                            className="
                                         text-white
                                         border border-white
                                         text-2xl
@@ -92,10 +94,10 @@ function ShellPreview() {
                                         p-2
                                         hover:bg-white hover:text-black
                                     "
-                        href="/shell"
-                    >
-                        Demo
-                    </a>
+                        >
+                            Demo
+                        </a>
+                    </Link>
                     <a
                         className="
                                          text-white

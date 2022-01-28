@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Fragment, useEffect, useRef } from "react";
 import ContainerOverlay from "../overlays/HoverOverlay";
 import Terminal from "../terminal/Terminal";
@@ -22,8 +23,9 @@ function FinePreview() {
                                     justify-around
                                 "
                 >
-                    <a
-                        className="
+                    <Link href="/fine">
+                        <a
+                            className="
                                         text-white
                                         border border-white
                                         text-2xl
@@ -31,10 +33,11 @@ function FinePreview() {
                                         p-2
                                         hover:bg-white hover:text-black
                                     "
-                        href="/fine"
-                    >
-                        Demo
-                    </a>
+                        >
+                            Demo
+                        </a>
+                    </Link>
+
                     <a
                         className="
                                          text-white
