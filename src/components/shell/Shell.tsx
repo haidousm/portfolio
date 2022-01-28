@@ -31,6 +31,10 @@ function ShellDemo() {
             const cmd = event.currentTarget.value;
             event.currentTarget.value = "";
             await executeCommand(cmd);
+            const container = document.getElementById("shell-container");
+            if (container) {
+                // container.scrollTop = container.scrollHeight + 1000;
+            }
         }
     };
 
@@ -96,7 +100,10 @@ function ShellDemo() {
                     </p>
                 }
             >
-                <Fragment>
+                <div
+                    id="shell-container"
+                    className="h-96 rounded-md bg-mac-gray-30 overflow-auto"
+                >
                     <div className="m-1 mt-8 text-white text-sm ">
                         {output.map((outputObj, index) =>
                             outputObj.isCommand ? (
@@ -130,7 +137,7 @@ function ShellDemo() {
                             />
                         </label>
                     </div>
-                </Fragment>
+                </div>
             </Terminal>
             <div className="w-full h-full">
                 <iframe

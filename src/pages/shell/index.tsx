@@ -27,7 +27,7 @@ const Shell: NextPage = () => {
             </Head>
             <main className="min-h-screen flex flex-col items-center justify-center font-mac-terminal">
                 <div
-                    className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 overflow-hidden border border-mac-gray-74
+                    className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 border border-mac-gray-74
 "
                 >
                     <ShellDemo />
