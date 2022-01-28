@@ -9,7 +9,7 @@ function ContainerOverlay({ children }: Props) {
                 className="
                 container 
                 backdrop-filter 
-                backdrop-blur 
+                backdrop-blur
                 h-full w-full 
                 absolute    
                 top-0
