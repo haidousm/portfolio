@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Fragment, useEffect, useState } from "react";
-import ContainerOverlay from "../container-overlay/ContainerOverlay";
+import ContainerOverlay from "../overlays/HoverOverlay";
 import Terminal from "../terminal/Terminal";
 
 function ShellPreview() {

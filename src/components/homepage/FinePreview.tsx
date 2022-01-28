@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useRef } from "react";
-import ContainerOverlay from "../container-overlay/ContainerOverlay";
+import ContainerOverlay from "../overlays/HoverOverlay";
 import Terminal from "../terminal/Terminal";
 
 function FinePreview() {
