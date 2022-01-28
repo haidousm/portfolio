@@ -6,7 +6,7 @@ import Terminal from "../terminal/Terminal";
 function ShellPreview() {
     const [shellPreviewRange, setShellPreviewRange] = useState({
         start: 0,
-        end: 10,
+        end: 15,
     });
     const shellPreviewLines = [
         "root@haidousm.com $ ls -al",
@@ -47,7 +47,7 @@ function ShellPreview() {
                 const newStart = prevState.start + 1;
                 const newEnd = prevState.end + 1;
                 if (newEnd >= shellPreviewLines.length) {
-                    return { start: 0, end: 10 };
+                    return { start: 0, end: 15 };
                 }
                 return { start: newStart, end: newEnd };
             });
