@@ -5,6 +5,8 @@ import CanvasDraw from "react-canvas-draw";
 
 interface Props {
     onChange: (dataUrl: string) => void;
+    canvas: BetterCanvasDraw | null;
+    setCanvas: (canvas: BetterCanvasDraw | null) => void;
 }
 
 interface BetterCanvasDraw extends CanvasDraw {
@@ -15,9 +17,7 @@ interface BetterCanvasDraw extends CanvasDraw {
     ): string;
 }
 
-function Canvas({ onChange }: Props) {
-    const [canvas, setCanvas] = useState<BetterCanvasDraw | null>(null);
-
+function Canvas({ onChange, canvas, setCanvas }: Props) {
     const handleChange = async () => {
         const dataUrl = canvas!.getDataURL("png", false, "#000000");
         onChange(dataUrl);
