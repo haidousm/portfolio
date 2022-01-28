@@ -119,18 +119,20 @@ function FineDemo() {
                             clearCanvas();
                         }}
                     >
-                        {/* <Canvas
-                        canvas={canvas}
-                        setCanvas={setCanvas}
-                        onChange={onChange}
-                    /> */}
-                        <h1></h1>
+                        <Canvas
+                            canvas={canvas}
+                            setCanvas={setCanvas}
+                            onChange={onChange}
+                        />
                     </Terminal>
                 </div>
                 <ConfidenceBars
                     className="hidden lg:block"
                     confidence={
-                        prediction?.confidence ?? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                        prediction?.confidence ?? [
+                            0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03,
+                            0.03, 0.03,
+                        ]
                     }
                 />
             </div>
