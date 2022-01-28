@@ -1,6 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
 import CanvasDraw from "react-canvas-draw";
+
+interface Props {
+    onChange: (dataUrl: string) => void;
+}
 
 interface BetterCanvasDraw extends CanvasDraw {
     getDataURL(
@@ -10,12 +15,12 @@ interface BetterCanvasDraw extends CanvasDraw {
     ): string;
 }
 
-function Canvas() {
+function Canvas({ onChange }: Props) {
     const [canvas, setCanvas] = useState<BetterCanvasDraw | null>(null);
 
-    const handleChange = () => {
+    const handleChange = async () => {
         const dataUrl = canvas!.getDataURL("png", false, "#000000");
-        const base64 = dataUrl.replace(/^data:image\/(png|jpg);base64,/, "");
+        onChange(dataUrl);
     };
 
     return (
