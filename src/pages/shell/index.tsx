@@ -20,6 +20,8 @@ const Shell: NextPage = () => {
     const [history, setHistory] = useState<Output[]>([]);
     const [output, setOutput] = useState<Output[]>([]);
 
+    const bannedCommands = ["sudo", "rm"];
+
     const focusOnCmdInput = () => {
         const cmdInput = document.getElementById("cmd-input");
         if (cmdInput) {
@@ -74,8 +76,16 @@ const Shell: NextPage = () => {
                 });
                 return true;
             default:
-                return false;
+                break;
         }
+
+        const isBanned = bannedCommands.some((bannedCommand) => {
+            return command.includes(bannedCommand);
+        });
+        if (isBanned) {
+            console.log("ASDKADS");
+        }
+        return false;
     };
 
     return (
