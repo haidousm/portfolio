@@ -221,6 +221,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
+"@types/react-canvas-draw@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-canvas-draw/-/react-canvas-draw-1.1.1.tgz#963d47867c4500a558e6741dc78d7dc166219af5"
+  integrity sha512-JsM05iygd7AozX0t6XGS9dBzmpjroUpQGZItj8eZjzoXl7DYPqpiExPwIqZDAAUr0cTn0/1Q7BfhNUIFuSt4CQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-html-parser@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/react-html-parser/-/react-html-parser-2.0.2.tgz#9b7e1b99657967e614aebf3f87d78a3fd0a1602c"
@@ -507,6 +514,11 @@ caniuse-lite@^1.0.30001283, caniuse-lite@^1.0.30001286, caniuse-lite@^1.0.300012
   version "1.0.30001299"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001299.tgz#d753bf6444ed401eb503cbbe17aa3e1451b5a68c"
   integrity sha512-iujN4+x7QzqA2NCSrS5VUy+4gLmRd4xv6vbBBsmfVqTx8bLAD8097euLqQgKxSVLvxjSDcvF1T/i9ocgnUFexw==
+
+catenary-curve@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/catenary-curve/-/catenary-curve-1.0.1.tgz#57c3061992735bfd34b274c401a96806fe30a21f"
+  integrity sha512-vSHQtYFjItV4wxUH5OkicA3Kmln6thBBWlJLiw2f4apfvkKw4BVe8bTbG6lnbJe60CIr8PyHzjSX27blSJ07Ww==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -1466,6 +1478,11 @@ language-tags@^1.0.5:
   dependencies:
     language-subtag-registry "~0.3.2"
 
+lazy-brush@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/lazy-brush/-/lazy-brush-1.0.1.tgz#5bf099073237294d2f6fc9d6c5d1d705e891c5bf"
+  integrity sha512-xT/iSClTVi7vLoF8dCWTBhCuOWqsLXCMPa6ucVmVAk6hyNCM5JeS1NLhXqIrJktUg+caEYKlqSOUU4u3cpXzKg==
+
 levn@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/levn/-/levn-0.4.1.tgz#ae4562c007473b932a6200d403268dd2fffc6ade"
@@ -1842,7 +1859,7 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-prop-types@^15.7.2:
+prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -1865,6 +1882,16 @@ quick-lru@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
+
+react-canvas-draw@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-canvas-draw/-/react-canvas-draw-1.2.1.tgz#2e9183704866b0e9bbb9a93dbb37073a31b858ed"
+  integrity sha512-mCHE+Q91a26gUhyraHONedmbCI7dF/4BKdOxba7s4538QNfFWv/NfzLXWZrmjAQ4tO1vTvO+axX5YGIFjGc6uw==
+  dependencies:
+    catenary-curve "^1.0.1"
+    lazy-brush "^1.0.1"
+    prop-types "^15.6.2"
+    resize-observer-polyfill "^1.5.0"
 
 react-dom@17.0.2:
   version "17.0.2"
@@ -1938,6 +1965,11 @@ regexpp@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
+
+resize-observer-polyfill@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-from@^4.0.0:
   version "4.0.0"
