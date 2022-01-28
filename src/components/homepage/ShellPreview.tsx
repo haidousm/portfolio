@@ -57,7 +57,11 @@ function ShellPreview() {
 
     return (
         <ContainerOverlay>
-            <Terminal statusBarHTML={<Fragment> UNIX Shell </Fragment>}>
+            <Terminal
+                statusBarHTML={
+                    <p className="text-center text-xs"> UNIX Shell </p>
+                }
+            >
                 <div
                     className="m-1 text-white relative text-left flex flex-col h-full text-xs"
                     data-nosnippet

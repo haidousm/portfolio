@@ -5,7 +5,11 @@ import Terminal from "../terminal/Terminal";
 function FinePreview() {
     return (
         <ContainerOverlay>
-            <Terminal statusBarHTML={<Fragment> Predictions: -- </Fragment>}>
+            <Terminal
+                statusBarHTML={
+                    <p className="text-center text-xs"> Predictions: -- </p>
+                }
+            >
                 <video autoPlay>{/* TODO: add gifs */}</video>
             </Terminal>
             <Fragment>

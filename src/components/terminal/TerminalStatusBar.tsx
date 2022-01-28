@@ -38,7 +38,7 @@ function TerminalStatusBar({ statusBarHTML }: Props) {
                 ></button>
             </div>
             <div className="text-mac-gray-176 flex items-center justify-center">
-                <p className="text-xs text-center">{statusBarHTML}</p>
+                {statusBarHTML}
             </div>
         </div>
     );
