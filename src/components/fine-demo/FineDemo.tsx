@@ -22,7 +22,7 @@ function FineDemo() {
     const [canvas, setCanvas] = useState<BetterCanvasDraw | null>(null);
     const [prediction, setPrediction] = React.useState<Prediction | null>(null);
 
-    const [animation, setAnimation] = useState<NodeJS.Timer | null>(null);
+    let animationIntervalId: NodeJS.Timer | null = null;
 
     const onChange = async (dataUrl: string) => {
         const base64 = dataUrl.replace(/^data:image\/(png|jpg);base64,/, "");
@@ -42,19 +42,16 @@ function FineDemo() {
     };
 
     const startAnimatingPrediction = () => {
-        const intervalID = setInterval(() => {
+        animationIntervalId = setInterval(() => {
             setPrediction({
                 confidence: [0.5, 0.5, 0.5],
                 prediction: randomIntFromInterval(0, 10),
             });
         }, 50);
-        setAnimation(intervalID);
     };
 
     const stopAnimatingPrediction = () => {
-        animation && clearInterval(animation);
-        setAnimation(null);
-        console.log(animation);
+        animationIntervalId && clearInterval(animationIntervalId);
     };
 
     const randomIntFromInterval = (min: number, max: number) => {
