@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Dock from "../components/dock/Dock";
+import DockIcon from "../components/dock/DockIcon";
 import Heading from "../components/homepage/Heading";
 import ProjectsContainer from "../components/homepage/ProjectsContainer";
 
@@ -20,7 +21,19 @@ const Home: NextPage = () => {
                 <ProjectsContainer />
             </main>
             <footer className="mt-10 h-32 w-full flex items-center justify-center">
-                <Dock />
+                <Dock>
+                    <DockIcon
+                        href="https://github.com/haidousm"
+                        imageSrc="/images/github_logo.png"
+                        imageAlt="Github's Logo"
+                    />
+                    <DockIcon
+                        href="https://linkedin.com/in/haidousm"
+                        imageSrc="/images/linkedin_logo.png"
+                        imageAlt="LinkedIn's Logo"
+                        imageClassName="bg-white"
+                    />
+                </Dock>
             </footer>
         </div>
     );

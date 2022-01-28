@@ -1,7 +1,10 @@
-import Image from "next/image";
 import React from "react";
 
-function Dock() {
+interface Props {
+    children: React.ReactNode;
+}
+
+function Dock({ children }: Props) {
     return (
         <div
             className="
@@ -13,41 +16,7 @@ function Dock() {
     py-3
 "
         >
-            <a
-                href="https://github.com/haidousm"
-                className="
-        transition-all
-        duration-300
-        transform
-        hover:scale-125 hover:-translate-y-0.5
-    "
-            >
-                <Image
-                    src="/images/github_logo.png"
-                    className="rounded-xl"
-                    alt="github_logo"
-                    width={80}
-                    height={80}
-                />
-            </a>
-            <a
-                href="https://linkedin.com/in/haidousm"
-                className="
-                transition-all
-                duration-300
-                transform
-                hover:scale-125 hover:-translate-y-0.5
-                
-    "
-            >
-                <Image
-                    src="/images/linkedin_logo.png"
-                    className="rounded-xl bg-white"
-                    alt="linkedin_logo"
-                    width={80}
-                    height={80}
-                />
-            </a>
+            {children}
         </div>
     );
 }
