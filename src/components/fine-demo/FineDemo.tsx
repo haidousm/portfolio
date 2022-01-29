@@ -17,7 +17,7 @@ interface BetterCanvasDraw extends CanvasDraw {
     ): string;
 }
 
-const FINE_API_URL = "http://fine.haidousm.com/api/predict";
+const FINE_API_URL = "https://fine.haidousm.com/api/predict";
 
 function FineDemo() {
     const [canvas, setCanvas] = useState<BetterCanvasDraw | null>(null);
@@ -115,6 +115,9 @@ function FineDemo() {
                                 </span>
                             </p>
                         }
+                        redHandler={() => {
+                            window.location.href = "/";
+                        }}
                         orangeHandler={() => {
                             clearCanvas();
                         }}

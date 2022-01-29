@@ -96,6 +96,9 @@ function ShellDemo() {
         >
             <Overlay isVisible={isRickRollTime}>
                 <Terminal
+                    redHandler={() => {
+                        window.location.href = "/";
+                    }}
                     statusBarHTML={
                         <p className="text-center text-sm">
                             root@haidousm.com{" "}
