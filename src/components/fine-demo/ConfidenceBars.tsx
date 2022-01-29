@@ -44,7 +44,7 @@ function ConfidenceBars({
         >
             {barVals &&
                 barVals.map((val, i) => (
-                    <p className="relative" key={i}>
+                    <p className="relative" key={i} data-nosnippet>
                         {i}:
                         <span
                             className={

@@ -57,36 +57,42 @@ function ShellPreview() {
     }, []);
 
     return (
-        <ContainerOverlay>
-            <Terminal
-                statusBarHTML={
-                    <p className="text-center text-xs"> UNIX Shell </p>
-                }
-            >
-                <div
-                    className="m-1 text-white relative text-left flex flex-col h-full text-xs"
-                    data-nosnippet
+        <div className="h-60 shadow-xl-heavy rounded-md m-4 w-2/3 overflow-hidden">
+            <ContainerOverlay>
+                <Terminal
+                    statusBarHTML={
+                        <p className="text-center text-xs"> UNIX Shell </p>
+                    }
                 >
-                    {shellPreviewLines
-                        .slice(shellPreviewRange.start, shellPreviewRange.end)
-                        .map((line, index) => (
-                            <p key={index}>{line}</p>
-                        ))}
-                </div>
-            </Terminal>
-            <Fragment>
-                <h3 className="text-2xl text-white text-center">Unix Shell</h3>
-                <div
-                    className="
+                    <div
+                        className="m-1 text-white relative text-left flex flex-col h-full text-xs"
+                        data-nosnippet
+                    >
+                        {shellPreviewLines
+                            .slice(
+                                shellPreviewRange.start,
+                                shellPreviewRange.end
+                            )
+                            .map((line, index) => (
+                                <p key={index}>{line}</p>
+                            ))}
+                    </div>
+                </Terminal>
+                <Fragment>
+                    <h3 className="text-2xl text-white text-center">
+                        Unix Shell
+                    </h3>
+                    <div
+                        className="
                                     container
                                     flex
                                     items-center
                                     justify-around
                                 "
-                >
-                    <Link href={"/shell"}>
-                        <a
-                            className="
+                    >
+                        <Link href={"/shell"}>
+                            <a
+                                className="
                                         text-white
                                         border border-white
                                         text-2xl
@@ -94,12 +100,12 @@ function ShellPreview() {
                                         p-2
                                         hover:bg-white hover:text-black
                                     "
-                        >
-                            Demo
-                        </a>
-                    </Link>
-                    <a
-                        className="
+                            >
+                                Demo
+                            </a>
+                        </Link>
+                        <a
+                            className="
                                          text-white
                                         border border-white
                                         text-2xl
@@ -107,13 +113,14 @@ function ShellPreview() {
                                         p-2
                                         hover:bg-white hover:text-black
                                     "
-                        href="https://github.com/haidousm/unix-shell"
-                    >
-                        GitHub
-                    </a>
-                </div>
-            </Fragment>
-        </ContainerOverlay>
+                            href="https://github.com/haidousm/unix-shell"
+                        >
+                            GitHub
+                        </a>
+                    </div>
+                </Fragment>
+            </ContainerOverlay>
+        </div>
     );
 }
 
