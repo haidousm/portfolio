@@ -134,6 +134,8 @@ function FineDemo() {
                             0.03, 0.03,
                         ]
                     }
+                    textSizeClassName="text-xl"
+                    barHeightClassName="h-4"
                 />
             </div>
         </div>

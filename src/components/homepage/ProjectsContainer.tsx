@@ -11,9 +11,8 @@ function ProjectsContainer() {
                 <div className="h-60 shadow-xl-heavy rounded-md m-4 w-2/3 overflow-hidden">
                     <ShellPreview />
                 </div>
-                <div className="h-60 shadow-xl-heavy rounded-md m-4 w-2/3 overflow-hidden">
-                    <FinePreview />
-                </div>
+
+                <FinePreview />
             </div>
         </div>
     );

@@ -2,11 +2,18 @@
 import React, { Ref, useEffect, useRef } from "react";
 
 interface Props {
-    className?: string;
     confidence: number[];
+    textSizeClassName: string;
+    barHeightClassName: string;
+    className?: string;
 }
 
-function ConfidenceBars({ className, confidence }: Props) {
+function ConfidenceBars({
+    confidence,
+    textSizeClassName,
+    barHeightClassName,
+    className,
+}: Props) {
     const [barVals, setBarVals] = React.useState<number[]>([]);
     const barRefs = useRef<HTMLSpanElement[]>([]);
 
@@ -29,7 +36,10 @@ function ConfidenceBars({ className, confidence }: Props) {
     return (
         <div
             className={
-                "mx-5 text-left text-mac-gray-176 text-xl my-auto " + className
+                "mx-5 text-left text-mac-gray-176 my-auto " +
+                className +
+                " " +
+                textSizeClassName
             }
         >
             {barVals &&
@@ -37,7 +47,10 @@ function ConfidenceBars({ className, confidence }: Props) {
                     <p className="relative" key={i}>
                         {i}:
                         <span
-                            className="bg-mac-gray-30 inline-block absolute h-5 top-1 w-2 transition-all duration-200 ease-in-out"
+                            className={
+                                "bg-mac-gray-30 inline-block absolute top-1 w-2 transition-all duration-200 ease-in-out " +
+                                barHeightClassName
+                            }
                             ref={(el) => (barRefs.current[i] = el!)}
                         ></span>
                     </p>
