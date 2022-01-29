@@ -1,0 +1,26 @@
+diff --git a/node_modules/react-canvas-draw/es/index.js b/node_modules/react-canvas-draw/es/index.js
+index a089ebc..f69672c 100644
+--- a/node_modules/react-canvas-draw/es/index.js
++++ b/node_modules/react-canvas-draw/es/index.js
+@@ -458,7 +458,7 @@ var CanvasDraw = /*#__PURE__*/function (_PureComponent) {
+           _ref4$once = _ref4.once,
+           once = _ref4$once === void 0 ? false : _ref4$once;
+ 
+-      if (_this.mouseHasMoved || _this.valuesChanged) {
++      if (_this.lazy && (_this.mouseHasMoved || _this.valuesChanged)) {
+         var pointer = _this.lazy.getPointerCoordinates();
+ 
+         var brush = _this.lazy.getBrushCoordinates();
+diff --git a/node_modules/react-canvas-draw/lib/index.js b/node_modules/react-canvas-draw/lib/index.js
+index e702478..4bcd327 100644
+--- a/node_modules/react-canvas-draw/lib/index.js
++++ b/node_modules/react-canvas-draw/lib/index.js
+@@ -477,7 +477,7 @@ var CanvasDraw = /*#__PURE__*/function (_PureComponent) {
+           _ref4$once = _ref4.once,
+           once = _ref4$once === void 0 ? false : _ref4$once;
+ 
+-      if (_this.mouseHasMoved || _this.valuesChanged) {
++      if (_this.lazy && (_this.mouseHasMoved || _this.valuesChanged)) {
+         var pointer = _this.lazy.getPointerCoordinates();
+ 
+         var brush = _this.lazy.getBrushCoordinates();
