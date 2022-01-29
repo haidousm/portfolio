@@ -1,27 +1,22 @@
-import React from "react";
-import fs from "fs";
-
-const Sitemap = () => {};
-
-export const getServerSideProps = ({ res }: { res: any }) => {
-    const baseUrl = {
-        development: "http://localhost:3000",
-        production: "https://haidousm.com",
-        test: "http://localhost:3000",
-    }[process.env.NODE_ENV];
+const fs = require("fs");
+const createSitemap = () => {
+    const baseUrl = "https://haidousm.com";
 
     const staticPages = fs
         .readdirSync("./src/pages")
         .filter((staticPage) => {
             return ![
-                "index.tsx",
                 "_app.tsx",
                 "_document.tsx",
                 "_error.tsx",
                 "sitemap.xml",
+                "robots.txt",
             ].includes(staticPage);
         })
         .map((staticPagePath) => {
+            if (staticPagePath.includes("index")) {
+                return `${baseUrl}/`;
+            }
             return `${baseUrl}/${staticPagePath}`;
         });
 
@@ -41,14 +36,7 @@ export const getServerSideProps = ({ res }: { res: any }) => {
               .join("")}
         </urlset>
       `;
-
-    res.setHeader("Content-Type", "text/xml");
-    res.write(sitemap);
-    res.end();
-
-    return {
-        props: {},
-    };
+    fs.writeFileSync("public/sitemap.xml", sitemap);
 };
 
-export default Sitemap;
+createSitemap();
