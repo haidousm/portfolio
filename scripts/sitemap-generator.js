@@ -1,6 +1,6 @@
 const fs = require("fs");
 const createSitemap = () => {
-    const baseUrl = "https://haidousm.com";
+    const baseUrl = "https://moussahaidous.com";
 
     const staticPages = fs
         .readdirSync("./src/pages")
