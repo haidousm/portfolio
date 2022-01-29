@@ -17,7 +17,7 @@ interface BetterCanvasDraw extends CanvasDraw {
     ): string;
 }
 
-const FINE_API_URL = "http://0.0.0.0:8000/api/predict";
+const FINE_API_URL = "http://fine.haidousm.com/api/predict";
 
 function FineDemo() {
     const [canvas, setCanvas] = useState<BetterCanvasDraw | null>(null);

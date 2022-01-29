@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { Ref, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface Props {
     confidence: number[];
@@ -43,7 +43,7 @@ function ConfidenceBars({
             }
         >
             {barVals &&
-                barVals.map((val, i) => (
+                barVals.map((_, i) => (
                     <p className="relative" key={i} data-nosnippet>
                         {i}:
                         <span
