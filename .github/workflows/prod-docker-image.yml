@@ -1,4 +1,4 @@
-name: Build Prod. Docker Image
+name: Build & Deploy Prod. Docker Image
 
 on:
   push:
@@ -25,4 +25,14 @@ jobs:
       run: |
         docker push haidousm/portfolio:${GITHUB_REF##*/}
         docker push haidousm/portfolio:latest
+
+  deploy:
+    name: Deploy Prod. Docker Image
+    runs-on: ubuntu-latest
+    needs: [ docker ]
+    steps:
+    - name: Call Webhook
+      uses: joelwmale/webhook-action@master
+      env:
+        WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL  }}
       
