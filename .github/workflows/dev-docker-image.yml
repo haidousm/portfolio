@@ -29,6 +29,9 @@ jobs:
         needs: [ docker ]
         steps:
             - name: Call Traefiker's API
-              uses: joelwmale/webhook-action@master
+              run: |
+                    curl -X GET --url $TRAEFIKER_API_URL --user $USERNAME:$PASSWORD
               env:
-                WEBHOOK_URL: ${{ secrets.TRAEFIKER_API_URL  }}
+                TRAEFIKER_API_URL: ${{ secrets.TRAEFIKER_API_URL  }}
+                USERNAME: ${{ secrets.TRAEFIKER_API_USERNAME }}
+                PASSWORD: ${{ secrets.TRAEFIKER_API_PASSWORD }}
