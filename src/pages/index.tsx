@@ -14,6 +14,14 @@ const Home: NextPage = () => {
                     name="description"
                     content="Moussa Haidous, Software Engineer"
                 />
+                <meta property="og:url" content="https://moussahaidous.com" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Moussa Haidous" />
+                <meta
+                    property="og:description"
+                    content="Moussa Haidous, Software Engineer"
+                />
+                <meta property="og:image" content="/images/homepage-favi.ico" />
                 <link rel="icon" href="/images/homepage-favi.ico" />
             </Head>
             <main className="flex flex-col items-center font-mac-terminal">

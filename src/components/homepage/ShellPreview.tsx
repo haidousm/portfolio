@@ -100,6 +100,7 @@ function ShellPreview() {
                                         p-2
                                         hover:bg-white hover:text-black
                                     "
+                                data-nosnippet
                             >
                                 Demo
                             </a>
@@ -114,6 +115,7 @@ function ShellPreview() {
                                         hover:bg-white hover:text-black
                                     "
                             href="https://github.com/haidousm/unix-shell"
+                            data-nosnippet
                         >
                             GitHub
                         </a>

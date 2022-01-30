@@ -9,7 +9,6 @@ function ProjectsContainer() {
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center mt-4">
                 <ShellPreview />
-
                 <FinePreview />
             </div>
         </div>
