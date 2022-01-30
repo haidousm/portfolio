@@ -21,7 +21,7 @@ const Home: NextPage = () => {
                     property="og:description"
                     content="Moussa Haidous, Software Engineer"
                 />
-                <meta property="og:image" content="/images/homepage-favi.ico" />
+                <meta property="og:image" content="/images/moussa.jpeg" />
                 <link rel="icon" href="/images/homepage-favi.ico" />
             </Head>
             <main className="flex flex-col items-center font-mac-terminal">
