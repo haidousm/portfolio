@@ -23,3 +23,12 @@ jobs:
             - name: Push the Docker Image to DockerHub
               run: |
                   docker push haidousm/portfolio:SNAPSHOT
+    deploy:
+        name: Deploy Dev. Docker Image
+        runs-on: ubuntu-latest
+        needs: [ docker ]
+        steps:
+            - name: Call Traefiker's API
+              uses: joelwmale/webhook-action@master
+              env:
+                WEBHOOK_URL: ${{ secrets.TRAEFIKER_API_URL  }}
