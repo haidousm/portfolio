@@ -18,7 +18,7 @@ const Shell: NextPage = () => {
             onClick={focusOnCmdInput}
         >
             <Head>
-                <title>Unix Shell</title>
+                <title>Unix Shell | Moussa Haidous</title>
                 <meta
                     name="description"
                     content="a simple unix shell built with C | Moussa Haidous | haidousm | github/haidousm | linkedin/in/haidousm"

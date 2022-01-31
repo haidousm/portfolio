@@ -9,7 +9,7 @@ const Fine: NextPage = () => {
     return (
         <div className="min-h-screen bg-black bg-opacity-75">
             <Head>
-                <title>Fine Neural Network</title>
+                <title>Fine Neural Network | Moussa Haidous</title>
                 <meta
                     name="description"
                     content="a demo of Fine, a neural network framework built from scratch in Python | Moussa Haidous | haidousm | github/haidousm | linkedin/in/haidousm"
