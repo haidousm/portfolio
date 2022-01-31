@@ -11,6 +11,7 @@ const createSitemap = () => {
                 "_error.tsx",
                 "sitemap.xml",
                 "robots.txt",
+                "api",
             ].includes(staticPage);
         })
         .map((staticPagePath) => {

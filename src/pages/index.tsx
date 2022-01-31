@@ -1,11 +1,25 @@
-import type { NextPage } from "next";
+import axios from "axios";
+import type { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import Dock from "../components/dock/Dock";
 import DockIcon from "../components/dock/DockIcon";
 import Heading from "../components/homepage/Heading";
 import ProjectsContainer from "../components/homepage/ProjectsContainer";
+import { BetterSocket } from "./api/social-card";
 
-const Home: NextPage = () => {
+interface SocialMediaCard {
+    title: string;
+    image: string;
+    type: string;
+    url: string;
+    description: string;
+}
+
+interface Props {
+    socialMediaCard: SocialMediaCard;
+}
+
+const Home: NextPage<Props> = ({ socialMediaCard }: Props) => {
     return (
         <div className="min-h-screen bg-black bg-opacity-75">
             <Head>
@@ -14,14 +28,14 @@ const Home: NextPage = () => {
                     name="description"
                     content="Moussa Haidous, Software Engineer | haidousm | github/haidousm | linkedin/in/haidousm"
                 />
-                <meta property="og:url" content="https://moussahaidous.com" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Moussa Haidous" />
-                <meta property="og:description" content="Software Engineer" />
+                <meta property="og:url" content={socialMediaCard.url} />
+                <meta property="og:type" content={socialMediaCard.type} />
+                <meta property="og:title" content={socialMediaCard.title} />
                 <meta
-                    property="og:image"
-                    content="https://moussahaidous.com/images/moussa.jpeg"
+                    property="og:description"
+                    content={socialMediaCard.description}
                 />
+                <meta property="og:image" content={socialMediaCard.image} />
                 <link rel="icon" href="/images/homepage-favi.ico" />
             </Head>
             <main className="flex flex-col items-center font-mac-terminal">
@@ -48,3 +62,20 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+export const getServerSideProps = async (context: NextPageContext) => {
+    const proto =
+        context.req!.headers["x-forwarded-proto"] ||
+        (context.req!.socket as BetterSocket).encrypted
+            ? "https"
+            : "http";
+
+    const response = await axios.get(
+        `${proto}://${context.req!.headers.host}/api/social-card`
+    );
+    const card = response.data as SocialMediaCard;
+    return {
+        props: {
+            socialMediaCard: card,
+        },
+    };
+};
