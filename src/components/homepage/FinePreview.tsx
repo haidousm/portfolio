@@ -69,6 +69,7 @@ function FinePreview() {
                                     items-center
                                     justify-around
                                 "
+                            data-nosnippet
                         >
                             <Link href="/fine">
                                 <a
@@ -80,7 +81,6 @@ function FinePreview() {
                                         p-2
                                         hover:bg-white hover:text-black
                                     "
-                                    data-nosnippet
                                 >
                                     Demo
                                 </a>
@@ -96,7 +96,6 @@ function FinePreview() {
                                         hover:bg-white hover:text-black
                                     "
                                 href="https://github.com/haidousm/fine"
-                                data-nosnippet
                             >
                                 GitHub
                             </a>

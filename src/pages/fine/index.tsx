@@ -12,7 +12,7 @@ const Fine: NextPage = () => {
                 <title>Fine Neural Network</title>
                 <meta
                     name="description"
-                    content="a demo of Fine, a neural network framework built from scratch in Python"
+                    content="a demo of Fine, a neural network framework built from scratch in Python | Moussa Haidous | haidousm | github/haidousm | linkedin/in/haidousm"
                 />
                 <link rel="icon" href="/images/fine-favi.ico" />
             </Head>

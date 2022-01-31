@@ -41,10 +41,11 @@ function ConfidenceBars({
                 " " +
                 textSizeClassName
             }
+            data-nosnippet
         >
             {barVals &&
                 barVals.map((_, i) => (
-                    <p className="relative" key={i} data-nosnippet>
+                    <p className="relative" key={i}>
                         {i}:
                         <span
                             className={

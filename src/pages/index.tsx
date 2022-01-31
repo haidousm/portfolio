@@ -12,7 +12,7 @@ const Home: NextPage = () => {
                 <title>Moussa Haidous</title>
                 <meta
                     name="description"
-                    content="Moussa Haidous, Software Engineer"
+                    content="Moussa Haidous, Software Engineer | haidousm | github/haidousm | linkedin/in/haidousm"
                 />
                 <meta property="og:url" content="https://moussahaidous.com" />
                 <meta property="og:type" content="website" />

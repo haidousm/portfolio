@@ -21,7 +21,7 @@ const Shell: NextPage = () => {
                 <title>Unix Shell</title>
                 <meta
                     name="description"
-                    content="a simple unix shell built with C"
+                    content="a simple unix shell built with C | Moussa Haidous | haidousm | github/haidousm | linkedin/in/haidousm"
                 />
                 <link rel="icon" href="/images/shell-favi.ico" />
             </Head>
