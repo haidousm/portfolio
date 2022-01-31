@@ -91,7 +91,7 @@ function ShellDemo() {
     };
     return (
         <div
-            className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 border border-mac-gray-74
+            className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 xl:w-1/3 border border-mac-gray-74
 "
         >
             <Overlay isVisible={isRickRollTime}>
@@ -108,7 +108,7 @@ function ShellDemo() {
                 >
                     <div
                         id="shell-container"
-                        className="h-96 rounded-md bg-mac-gray-30 overflow-auto"
+                        className="h-96 rounded-md bg-mac-gray-30 overflow--y-auto overflow-x-hidden"
                     >
                         <div className="m-1 mt-8 text-white text-sm ">
                             {output.map((outputObj, index) =>
