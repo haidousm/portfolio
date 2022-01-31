@@ -91,7 +91,7 @@ function ShellDemo() {
     };
     return (
         <div
-            className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 xl:w-1/3 border border-mac-gray-74
+            className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 2xl:w-1/3 border border-mac-gray-74
 "
         >
             <Overlay isVisible={isRickRollTime}>
@@ -101,8 +101,10 @@ function ShellDemo() {
                     }}
                     statusBarHTML={
                         <p className="text-center text-sm">
-                            root@haidousm.com{" "}
-                            <span className="hidden xl:inline">-- bash</span>
+                            <span className="hidden xl:inline">
+                                root@haidousm.com --
+                            </span>{" "}
+                            bash
                         </p>
                     }
                 >

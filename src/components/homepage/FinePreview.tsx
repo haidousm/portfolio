@@ -37,7 +37,7 @@ function FinePreview() {
 
     return (
         <div className="w-full h-full flex items-center justify-center">
-            <div className="h-60 xl:h-96 shadow-xl-heavy rounded-md m-4 w-2/3 overflow-hidden">
+            <div className="h-60 2xl:h-96 shadow-xl-heavy rounded-md m-4 w-2/3 overflow-hidden">
                 <ContainerOverlay>
                     <Terminal
                         statusBarHTML={

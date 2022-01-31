@@ -23,9 +23,7 @@ function TerminalStatusBar({
                                 w-3
                                 h-3
                                 rounded-full
-                                ml-3 mr-3
-                                md:ml-2
-                                md:mr-1
+                                ml-2
                                 bg-red-500
                                 hover:bg-red-700
                             "
@@ -40,10 +38,7 @@ function TerminalStatusBar({
                                 w-3
                                 h-3
                                 rounded-full
-                                ml-3
-                                mr-3
-                                md:ml-1
-                                md:mr-1
+                                ml-4
                                 bg-yellow-500
                                 hover:bg-yellow-700
                             "
@@ -58,10 +53,7 @@ function TerminalStatusBar({
                                 w-3
                                 h-3
                                 rounded-full
-                                ml-3
-                                mr-3
-                                md:ml-1
-                                md:mr-1
+                                ml-4
                                 bg-green-600
                                 hover:bg-green-700
                             "
