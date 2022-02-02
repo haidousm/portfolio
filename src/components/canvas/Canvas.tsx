@@ -2,19 +2,12 @@
 import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
 import CanvasDraw from "react-canvas-draw";
+import BetterCanvasDraw from "../../types/BetterCanvasDraw";
 
 interface Props {
     onChange: (dataUrl: string) => void;
     canvas: BetterCanvasDraw | null;
     setCanvas: (canvas: BetterCanvasDraw | null) => void;
-}
-
-interface BetterCanvasDraw extends CanvasDraw {
-    getDataURL(
-        fileType: string,
-        useBgImage: boolean,
-        backgroundColour: string
-    ): string;
 }
 
 function Canvas({ onChange, canvas, setCanvas }: Props) {

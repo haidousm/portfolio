@@ -1,5 +1,5 @@
-import FinePreview from "./FinePreview";
-import ShellPreview from "./ShellPreview";
+import FinePreview from "../fine-preview/FinePreview";
+import ShellPreview from "../shell-preview/ShellPreview";
 
 function ProjectsContainer() {
     return (

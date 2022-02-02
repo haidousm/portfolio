@@ -1,25 +1,17 @@
 import axios from "axios";
 import React, { Fragment, useState } from "react";
-import ContainerOverlay from "../overlays/HoverOverlay";
+import ShellAPIResponse from "../../types/ShellAPIResponse";
+import ShellOutput from "../../types/ShellOutput";
+
 import Overlay from "../overlays/Overlay";
 import Terminal from "../terminal/Terminal";
-
-interface ShellAPIResponse {
-    status: string;
-    command_output: string;
-}
-
-interface Output {
-    output: string;
-    isCommand: boolean;
-}
 
 const SHELL_API_URL = "https://shell.haidousm.com/api/execute";
 const BANNED_COMMANDS = ["sudo", "rm", "touch", "wget", "curl"];
 
 function ShellDemo() {
-    const [history, setHistory] = useState<Output[]>([]);
-    const [output, setOutput] = useState<Output[]>([]);
+    const [history, setHistory] = useState<ShellOutput[]>([]);
+    const [output, setOutput] = useState<ShellOutput[]>([]);
 
     const [isRickRollTime, setIsRickRollTime] = useState(false);
 
