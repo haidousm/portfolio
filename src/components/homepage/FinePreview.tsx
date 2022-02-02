@@ -15,12 +15,17 @@ const POSSIBLE_PREDICTIONS = [
     [8, [0.12, 0.15, 0.06, 0.25, 0.26, 0.24, 0.26, 0.12, 0.91, 0.53]],
 ];
 
+interface UrlBlob {
+    prediction: number;
+    url: string;
+}
+
 function FinePreview() {
     const [prediction, setPossiblePrediction] = useState(
         POSSIBLE_PREDICTIONS[0]
     );
 
-    const [gifUrlBlobs, setGifUrlBlobs] = useState<string[]>([]);
+    const [gifUrlBlobs, setGifUrlBlobs] = useState<UrlBlob[]>([]);
 
     let animationIntervalId = useRef<NodeJS.Timer | null>(null);
 
@@ -31,7 +36,10 @@ function FinePreview() {
             const gifBlob = new Blob([rawBlob], {
                 type: "image/gif",
             });
-            const gifUrlBlob = URL.createObjectURL(gifBlob);
+            const gifUrlBlob: UrlBlob = {
+                prediction: prediction[0] as number,
+                url: URL.createObjectURL(gifBlob),
+            };
             setGifUrlBlobs((gifUrlBlobs) => [...gifUrlBlobs, gifUrlBlob]);
         });
     }, []);
@@ -50,10 +58,10 @@ function FinePreview() {
     }, []);
 
     const getFineGif = () => {
-        return (
-            gifUrlBlobs[(prediction[0] as number) - 1] ??
-            `/gifs/${prediction[0]}.gif`
-        );
+        const url = gifUrlBlobs.find(
+            (blob) => blob.prediction === prediction[0]
+        )?.url;
+        return url ?? `/gifs/${prediction[0]}.gif`;
     };
 
     return (
@@ -69,7 +77,7 @@ function FinePreview() {
                         }
                     >
                         <div className="w-full h-full flex items-center justify-center">
-                            <div className="w-3/4 h-3/4 mt-12 absolute">
+                            <div className="w-3/4 h-3/4 mt-12 relative">
                                 <Image
                                     alt="Fine Preview Gifs"
                                     src={getFineGif()}
