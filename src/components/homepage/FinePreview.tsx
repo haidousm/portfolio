@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
+import FineGifBlob from "../../types/FineGifBlob";
 import ConfidenceBars from "../fine-demo/ConfidenceBars";
 import ContainerOverlay from "../overlays/HoverOverlay";
 import Terminal from "../terminal/Terminal";
@@ -15,17 +16,12 @@ const POSSIBLE_PREDICTIONS = [
     [8, [0.12, 0.15, 0.06, 0.25, 0.26, 0.24, 0.26, 0.12, 0.91, 0.53]],
 ];
 
-interface UrlBlob {
-    prediction: number;
-    url: string;
-}
-
 function FinePreview() {
     const [prediction, setPossiblePrediction] = useState(
         POSSIBLE_PREDICTIONS[0]
     );
 
-    const [gifUrlBlobs, setGifUrlBlobs] = useState<UrlBlob[]>([]);
+    const [gifUrlBlobs, setGifUrlBlobs] = useState<FineGifBlob[]>([]);
 
     let animationIntervalId = useRef<NodeJS.Timer | null>(null);
 
@@ -36,7 +32,7 @@ function FinePreview() {
             const gifBlob = new Blob([rawBlob], {
                 type: "image/gif",
             });
-            const gifUrlBlob: UrlBlob = {
+            const gifUrlBlob: FineGifBlob = {
                 prediction: prediction[0] as number,
                 url: URL.createObjectURL(gifBlob),
             };

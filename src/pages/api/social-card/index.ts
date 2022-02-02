@@ -1,15 +1,8 @@
 import axios from "axios";
 import { Socket } from "net";
 import { NextApiRequest, NextApiResponse } from "next";
+import SocialMediaCard from "../../../types/SocialMediaCard";
 const fsp = require("fs").promises;
-
-interface SocialMediaCard {
-    title: string;
-    image: string;
-    type: string;
-    url: string;
-    description: string;
-}
 
 export interface BetterSocket extends Socket {
     encrypted: boolean;

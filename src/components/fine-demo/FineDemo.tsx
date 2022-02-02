@@ -4,18 +4,8 @@ import Canvas from "../canvas/Canvas";
 import Terminal from "../terminal/Terminal";
 import CanvasDraw from "react-canvas-draw";
 import ConfidenceBars from "./ConfidenceBars";
-
-interface Prediction {
-    confidence: number[];
-    prediction: number;
-}
-interface BetterCanvasDraw extends CanvasDraw {
-    getDataURL(
-        fileType: string,
-        useBgImage: boolean,
-        backgroundColour: string
-    ): string;
-}
+import Prediction from "../../types/Prediction";
+import BetterCanvasDraw from "../../types/BetterCanvasDraw";
 
 const FINE_API_URL = "https://fine.haidousm.com/api/predict";
 

@@ -5,15 +5,8 @@ import Dock from "../components/dock/Dock";
 import DockIcon from "../components/dock/DockIcon";
 import Heading from "../components/homepage/Heading";
 import ProjectsContainer from "../components/homepage/ProjectsContainer";
+import SocialMediaCard from "../types/SocialMediaCard";
 import { BetterSocket } from "./api/social-card";
-
-interface SocialMediaCard {
-    title: string;
-    image: string;
-    type: string;
-    url: string;
-    description: string;
-}
 
 interface Props {
     socialMediaCard: SocialMediaCard;
