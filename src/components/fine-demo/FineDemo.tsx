@@ -76,15 +76,18 @@ function FineDemo() {
                             hover:bg-yellow-700
                         "
                         ></button>
-                        <p>: Clear Drawing</p>
+                        <p>: Clear Drawing || Just Double Tap!</p>
                     </div>
                 </div>
             </div>
             <div className="container flex items-center justify-center">
                 <div
-                    className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 xl:w-1/3  border border-mac-gray-74
-            
-"
+                    className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 xl:w-1/3  border border-mac-gray-74"
+                    onDoubleClick={() => {
+                        setTimeout(() => {
+                            clearCanvas();
+                        }, 300);
+                    }}
                 >
                     <Terminal
                         statusBarHTML={
