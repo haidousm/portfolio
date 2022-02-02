@@ -3,8 +3,8 @@ import type { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import Dock from "../components/dock/Dock";
 import DockIcon from "../components/dock/DockIcon";
-import Heading from "../components/homepage/Heading";
-import ProjectsContainer from "../components/homepage/ProjectsContainer";
+import Heading from "../components/projects-container/Heading";
+import ProjectsContainer from "../components/projects-container/ProjectsContainer";
 import SocialMediaCard from "../types/SocialMediaCard";
 import { BetterSocket } from "./api/social-card";
 
