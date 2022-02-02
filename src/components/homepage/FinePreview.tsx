@@ -20,7 +20,21 @@ function FinePreview() {
         POSSIBLE_PREDICTIONS[0]
     );
 
+    const [gifUrlBlobs, setGifUrlBlobs] = useState<string[]>([]);
+
     let animationIntervalId = useRef<NodeJS.Timer | null>(null);
+
+    useEffect(() => {
+        POSSIBLE_PREDICTIONS.forEach(async (prediction) => {
+            const gifUrl = `/gifs/${prediction[0]}.gif`;
+            const rawBlob = await (await fetch(gifUrl)).blob();
+            const gifBlob = new Blob([rawBlob], {
+                type: "image/gif",
+            });
+            const gifUrlBlob = URL.createObjectURL(gifBlob);
+            setGifUrlBlobs((gifUrlBlobs) => [...gifUrlBlobs, gifUrlBlob]);
+        });
+    }, []);
 
     useEffect(() => {
         animationIntervalId.current = setInterval(() => {
@@ -34,6 +48,13 @@ function FinePreview() {
             animationIntervalId && clearInterval(animationIntervalId.current!);
         };
     }, []);
+
+    const getFineGif = () => {
+        return (
+            gifUrlBlobs[(prediction[0] as number) - 1] ??
+            `/gifs/${prediction[0]}.gif`
+        );
+    };
 
     return (
         <div className="w-full h-full flex items-center justify-center">
@@ -51,7 +72,7 @@ function FinePreview() {
                             <div className="w-3/4 h-3/4 mt-12 absolute">
                                 <Image
                                     alt="Fine Preview Gifs"
-                                    src={`/gifs/${prediction[0]}.gif`}
+                                    src={getFineGif()}
                                     layout="fill"
                                     objectFit="contain"
                                 ></Image>
