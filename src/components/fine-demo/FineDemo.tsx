@@ -2,16 +2,22 @@ import axios from "axios";
 import React, { useState } from "react";
 import Canvas from "../canvas/Canvas";
 import Terminal from "../terminal/Terminal";
-import CanvasDraw from "react-canvas-draw";
 import ConfidenceBars from "./ConfidenceBars";
 import Prediction from "../../types/Prediction";
 import BetterCanvasDraw from "../../types/BetterCanvasDraw";
+import { useDoubleTap } from "use-double-tap";
 
 const FINE_API_URL = "https://fine.haidousm.com/api/predict";
 
 function FineDemo() {
     const [canvas, setCanvas] = useState<BetterCanvasDraw | null>(null);
     const [prediction, setPrediction] = React.useState<Prediction | null>(null);
+
+    const mobileClear = useDoubleTap(() => {
+        setTimeout(() => {
+            clearCanvas();
+        }, 300);
+    });
 
     let animationIntervalId: NodeJS.Timer | null = null;
 
@@ -83,11 +89,7 @@ function FineDemo() {
             <div className="container flex items-center justify-center">
                 <div
                     className="h-96 shadow-xl-heavy rounded-md m-4 w-3/4 lg:w-1/2 xl:w-1/3  border border-mac-gray-74"
-                    onDoubleClick={() => {
-                        setTimeout(() => {
-                            clearCanvas();
-                        }, 300);
-                    }}
+                    {...mobileClear}
                 >
                     <Terminal
                         statusBarHTML={
